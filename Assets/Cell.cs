@@ -44,6 +44,7 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
       if (mGlobal.mSelectedLilyType != LilyType.None && GameConstants.enablePlant) {
         Debug.Log("Cell click " + mGlobal.mSelectedLilyType.ToString("g"));
         GameConstants.sunlight--;
+        GameObject.Find("sunlightText").GetComponent<Text>().text = "SunLight: " + GameConstants.sunlight;
         GameObject child;
         switch (mGlobal.mSelectedLilyType) {
             case LilyType.Gold: 
