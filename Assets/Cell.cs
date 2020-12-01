@@ -67,6 +67,8 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         child.transform.localPosition = new Vector3(50, 50, 0);
         child.transform.localScale = new Vector3(1, 1, 1);
         child.transform.localRotation = Quaternion.identity;
+
+        mGlobal.mSelectedLilyType = LilyType.None;
       }
     }
 
