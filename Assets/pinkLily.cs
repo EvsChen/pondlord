@@ -120,7 +120,7 @@ public class pinkLily : MonoBehaviour
                 switch (t)
                 {
                     case 1:
-                        if (newX + 1 < mWidth)
+                        if (newX + 1 < mWidth && mAllCells[newX + 1, newY].transform.childCount == 1)
                         {
                             Cell c = mAllCells[newX + 1, newY];
                             child = Instantiate(seed, new Vector3(c.transform.position.x, c.transform.position.y, c.transform.position.z), Quaternion.identity);
@@ -133,7 +133,7 @@ public class pinkLily : MonoBehaviour
 
                         break;
                     case 2:
-                        if (newX - 1 > 0)
+                        if (newX - 1 > 0 && mAllCells[newX - 1, newY].transform.childCount == 1)
                         {
                             Cell c = mAllCells[newX - 1, newY];
                             child = Instantiate(seed, new Vector3(c.transform.position.x, c.transform.position.y, c.transform.position.z), Quaternion.identity);
@@ -145,7 +145,7 @@ public class pinkLily : MonoBehaviour
 
                         break;
                     case 3:
-                        if (newY + 1 < mHeight)
+                        if (newY + 1 < mHeight && mAllCells[newX, newY + 1].transform.childCount == 1)
                         {
                             Cell c = mAllCells[newX, newY + 1];
                             child = Instantiate(seed, new Vector3(c.transform.position.x, c.transform.position.y, c.transform.position.z), Quaternion.identity);
@@ -156,7 +156,7 @@ public class pinkLily : MonoBehaviour
                         }
                         break;
                     case 4:
-                        if (newY - 1 > 0)
+                        if (newY - 1 > 0 && mAllCells[newX, newY - 1].transform.childCount == 1)
                         {
                             Cell c = mAllCells[newX, newY - 1];
                             child = Instantiate(seed, new Vector3(c.transform.position.x, c.transform.position.y, c.transform.position.z), Quaternion.identity);
