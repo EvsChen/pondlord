@@ -15,6 +15,7 @@ public static class GameConstants {
   public static int mBoardWidth = 8;
   public static int mBoardHeight = 8;
     public static int sunlight = 5;
+    public static bool enablePlant = true;
 }
 
 public class Global : MonoBehaviour
@@ -43,6 +44,11 @@ public class Global : MonoBehaviour
                     GameConstants.sunlight++;
                    GameObject.Find("sunlightText").GetComponent<Text>().text = "SunLight: " + GameConstants.sunlight;
                     Destroy(selectedObject);
+
+                    if (GameConstants.sunlight > 0)
+                    {
+                        GameConstants.enablePlant = true;
+                    }
                 }
             }
         }

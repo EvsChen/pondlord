@@ -37,7 +37,11 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
     public void OnPointerClick(PointerEventData eventData) {
       Debug.Log("Cell click");
-      if (mGlobal.mSelectedLilyType != LilyType.None) {
+      if (GameConstants.sunlight <= 0)
+      {
+        GameConstants.enablePlant = false;
+      }
+      if (mGlobal.mSelectedLilyType != LilyType.None && GameConstants.enablePlant) {
         Debug.Log("Cell click " + mGlobal.mSelectedLilyType.ToString("g"));
         GameObject child;
         switch (mGlobal.mSelectedLilyType) {
