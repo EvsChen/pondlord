@@ -38,29 +38,29 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     public void OnPointerClick(PointerEventData eventData) {
       Debug.Log("Cell click");
       if (mGlobal.mSelectedLilyType != LilyType.None) {
-            Debug.Log("Cell click " + mGlobal.mSelectedLilyType.ToString("g"));
-
-            GameObject child;
-        switch (mGlobal.mSelectedLilyType)
-        {
+        Debug.Log("Cell click " + mGlobal.mSelectedLilyType.ToString("g"));
+        GameObject child;
+        switch (mGlobal.mSelectedLilyType) {
             case LilyType.Gold: 
-            
+              child = Instantiate(goldLily); // Satisfy compiler
               break;
             case LilyType.Blue:
-                    child = Instantiate(blueLily, new Vector3(transform.position.x, transform.position.y, transform.position.z+10), Quaternion.identity);
-                    child.transform.parent = gameObject.transform;
-                    break;
+              child = Instantiate(blueLily);
+              break;
             case LilyType.Pink:
-                    child = Instantiate(pinkLily, new Vector3(transform.position.x, transform.position.y, transform.position.z + 10), Quaternion.identity);
-                    child.transform.parent = gameObject.transform;
-                    break;
-                case LilyType.White:
-                    child = Instantiate(whiteLily, new Vector3(transform.position.x, transform.position.y, transform.position.z + 10), Quaternion.identity);
-                    child.transform.parent = gameObject.transform;
-                    break;
-                default:
+              child = Instantiate(pinkLily);
+              break;
+            case LilyType.White:
+              child = Instantiate(whiteLily);
+              break;
+            default:
+              child = Instantiate(whiteLily); // Satisfy compiler
               break;
         }
+        child.transform.SetParent(gameObject.transform);
+        child.transform.localPosition = new Vector3(50, 50, 0);
+        child.transform.localScale = new Vector3(1, 1, 1);
+        child.transform.localRotation = Quaternion.identity;
       }
     }
 

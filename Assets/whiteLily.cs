@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class whiteLily : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class whiteLily : MonoBehaviour
     public int state = 1; //seed = 1; leaf = 2; flower = 3;
     public Sprite flower;
     public Sprite leaf;
+    public Image mImage;
     public int hp = 2;
     public GameObject protector;
     public GameObject sunlight;
@@ -24,6 +26,8 @@ public class whiteLily : MonoBehaviour
         state = 1;
         hp = 2;
         Pb = GetComponentInChildren<ProgressBar>();
+        GameObject c = transform.GetChild(0).gameObject;
+        mImage = c.GetComponent<Image>();
         StartCoroutine(Loop());
     }
 
@@ -70,7 +74,7 @@ public class whiteLily : MonoBehaviour
             if (this.progress == 50f)
             {
                 state = 2;
-                this.GetComponent<SpriteRenderer>().sprite = this.leaf;
+                mImage.sprite = this.leaf;
                 generateSun = true;
 
             }
@@ -78,7 +82,7 @@ public class whiteLily : MonoBehaviour
             if (this.progress == 100f)
             {
                 state = 3;
-                this.GetComponent<SpriteRenderer>().sprite = this.flower;
+                mImage.sprite = this.flower;
                 generateSun = false;
                 functional = true;
                 yield break;
