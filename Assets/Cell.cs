@@ -11,16 +11,13 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     public Color mNormalColor;
     public Board mBoard = null;
     public Global mGlobal;
-    
-    public Sprite goldLilySprite, blueLilySprite, pinkLilySprite, whiteLilySprite;
+
+    public GameObject blueLily, redLily, goldLily, pinkLily;
+ 
     // Start is called before the first frame update
     void Start()
     {
-        goldLilySprite = Resources.Load<Sprite>("img_yellow");
-        blueLilySprite = Resources.Load<Sprite>("img_blue");
-        pinkLilySprite = Resources.Load<Sprite>("img_pink");
-        whiteLilySprite = Resources.Load<Sprite>("img_white");
-
+      
         mRectTransform = GetComponent<RectTransform>();
         mBgImg = GetComponent<Image>();
         GameObject c = transform.GetChild(0).gameObject;
@@ -43,16 +40,17 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         switch (mGlobal.mSelectedLilyType)
         {
             case LilyType.Gold: 
-              mContentImg.sprite = goldLilySprite;
+            
               break;
             case LilyType.Blue:
-              mContentImg.sprite = blueLilySprite;
-              break;
+             GameObject child = Instantiate(blueLily, new Vector3(transform.position.x, transform.position.y, transform.position.z+10), Quaternion.identity);
+                    child.transform.parent = gameObject.transform;
+                    break;
             case LilyType.Pink:
-              mContentImg.sprite = pinkLilySprite;
+
               break;
             case LilyType.White:
-              mContentImg.sprite = whiteLilySprite;
+
               break;
             default:
               break;

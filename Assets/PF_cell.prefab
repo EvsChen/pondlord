@@ -169,10 +169,8 @@ MonoBehaviour:
   mNormalColor: {r: 0, g: 0, b: 0, a: 0}
   mBoard: {fileID: 0}
   mGlobal: {fileID: 0}
-  goldLilySprite: {fileID: 0}
-  blueLilySprite: {fileID: 0}
-  pinkLilySprite: {fileID: 0}
-  whiteLilySprite: {fileID: 0}
+  blueLily: {fileID: 1317359399715567876, guid: 361003a07ce1bed4cbb6652d0cf445f6,
+    type: 3}
 --- !u!61 &-8554120371845991550
 BoxCollider2D:
   m_ObjectHideFlags: 0
