@@ -127,6 +127,7 @@
           <e p="ChatUserStatus.cs" t="Include" />
           <e p="IChatClientListener.cs" t="Include" />
         </e>
+        <e p="pinkLily.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="changes-library.txt" t="Include" />
           <e p="Photon3Unity3D.xml" t="Include" />
@@ -144,6 +145,7 @@
             <e p="ProgressBarCircle.cs" t="Include" />
           </e>
         </e>
+        <e p="protector.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="CountDownTimer.cs" t="Include" />
           <e p="Global_MainMenu.cs" t="Include" />
@@ -200,6 +202,7 @@
             <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
         </e>
+        <e p="whiteLily.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
