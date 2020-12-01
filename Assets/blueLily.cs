@@ -110,8 +110,9 @@ public class blueLily : MonoBehaviour
             float t = Random.Range(0, 500);
             if (t < 1)
             {
-                GameObject child = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z+10), Quaternion.identity);
+                GameObject child = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
                 child.transform.parent = gameObject.transform;
+               
             }
         }
         

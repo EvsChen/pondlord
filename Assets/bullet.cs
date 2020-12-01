@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
-    public float speed = 10099;
+    public float speed = 3000;
     public Vector3 direction;
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class bullet : MonoBehaviour
                 direction = new Vector3(0, -1, 0);
                 break;
         }
-        transform.position = new Vector3(transform.position.x + direction.x * 60, transform.position.y + direction.y * 60, transform.position.z - 10);
+        transform.localPosition = new Vector3(transform.localPosition.x + direction.x * 40, transform.localPosition.y + direction.y * 40, transform.localPosition.z - 10);
 
     }
 
@@ -33,6 +33,6 @@ public class bullet : MonoBehaviour
     void Update()
     {
         
-        transform.position +=  direction * speed * Time.deltaTime;
+        transform.localPosition +=  direction * speed * Time.deltaTime;
     }
 }
