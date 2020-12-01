@@ -19,7 +19,9 @@ public class Board : MonoBehaviour
         for (int y = 0; y < mHeight; y++) {
           for (int x = 0; x < mWidth; x++) {
             GameObject newCell = Instantiate(mCellPrefab, transform);
-            RectTransform rectTransform = newCell.GetComponent<RectTransform>();
+                newCell.GetComponent<Cell>().x = x;
+                newCell.GetComponent<Cell>().y = y;
+                RectTransform rectTransform = newCell.GetComponent<RectTransform>();
             rectTransform.anchoredPosition = new Vector2((x * 100) + 50, (y * 100) + 50);
             mAllCells[x, y] = newCell.GetComponent<Cell>();
             mAllCells[x, y].mBoard = this;

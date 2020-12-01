@@ -38,7 +38,6 @@ public class Global : MonoBehaviour
             if (hit)
             {
                 GameObject selectedObject = hit.collider.gameObject;
-                Debug.Log(selectedObject.name);
                 if (selectedObject.name.Contains("Sunlight"))
                 {
                     GameConstants.sunlight++;

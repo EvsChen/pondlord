@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class blueLily : MonoBehaviour
+public class whiteLily : MonoBehaviour
 {
     public ProgressBar Pb;
     public int progress = 0;
@@ -10,7 +10,7 @@ public class blueLily : MonoBehaviour
     public Sprite flower;
     public Sprite leaf;
     public int hp = 2;
-    public GameObject bullet;
+    public GameObject protector;
     public GameObject sunlight;
     bool functional = false;
     bool generateSun = false;
@@ -44,14 +44,14 @@ public class blueLily : MonoBehaviour
 
     }
 
+
     IEnumerator Loop()
     {
         while (true)
         {
 
-            
-        if(this.progress < 100f)
-        {
+            if (this.progress < 100f)
+            {
                 if (state == 1)
                 {
                     yield return new WaitForSeconds(1);
@@ -64,9 +64,9 @@ public class blueLily : MonoBehaviour
                     yield return new WaitForSeconds(1);
                     this.progress = progress + 10;
                 }
-                
+
             }
-        
+
             if (this.progress == 50f)
             {
                 state = 2;
@@ -102,19 +102,16 @@ public class blueLily : MonoBehaviour
                 child.transform.localPosition = new Vector3(0, 0, 0);
             }
         }
-        if (functional){
-            float t = Random.Range(0, 500);
-            if (t < 1)
-            {
-                GameObject child = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z+10), Quaternion.identity);
-                child.transform.parent = gameObject.transform;
-            }
+        if (functional)
+        {
+            Instantiate(protector, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            functional = false;
         }
-        
-       
+
+
     }
 
-  
 
-    
+
+
 }

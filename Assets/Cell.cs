@@ -11,8 +11,10 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     public Color mNormalColor;
     public Board mBoard = null;
     public Global mGlobal;
+    public int x;
+    public int y;
 
-    public GameObject blueLily, redLily, goldLily, pinkLily;
+    public GameObject blueLily, whiteLily, goldLily, pinkLily;
  
     // Start is called before the first frame update
     void Start()
@@ -36,23 +38,27 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     public void OnPointerClick(PointerEventData eventData) {
       Debug.Log("Cell click");
       if (mGlobal.mSelectedLilyType != LilyType.None) {
-        Debug.Log("Cell click " + mGlobal.mSelectedLilyType.ToString("g"));
+            Debug.Log("Cell click " + mGlobal.mSelectedLilyType.ToString("g"));
+
+            GameObject child;
         switch (mGlobal.mSelectedLilyType)
         {
             case LilyType.Gold: 
             
               break;
             case LilyType.Blue:
-             GameObject child = Instantiate(blueLily, new Vector3(transform.position.x, transform.position.y, transform.position.z+10), Quaternion.identity);
+                    child = Instantiate(blueLily, new Vector3(transform.position.x, transform.position.y, transform.position.z+10), Quaternion.identity);
                     child.transform.parent = gameObject.transform;
                     break;
             case LilyType.Pink:
-
-              break;
-            case LilyType.White:
-
-              break;
-            default:
+                    child = Instantiate(pinkLily, new Vector3(transform.position.x, transform.position.y, transform.position.z + 10), Quaternion.identity);
+                    child.transform.parent = gameObject.transform;
+                    break;
+                case LilyType.White:
+                    child = Instantiate(whiteLily, new Vector3(transform.position.x, transform.position.y, transform.position.z + 10), Quaternion.identity);
+                    child.transform.parent = gameObject.transform;
+                    break;
+                default:
               break;
         }
       }

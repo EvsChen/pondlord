@@ -169,7 +169,14 @@ MonoBehaviour:
   mNormalColor: {r: 0, g: 0, b: 0, a: 0}
   mBoard: {fileID: 0}
   mGlobal: {fileID: 0}
+  x: 0
+  y: 0
   blueLily: {fileID: 1317359399715567876, guid: 361003a07ce1bed4cbb6652d0cf445f6,
+    type: 3}
+  whiteLily: {fileID: 1989492850192379268, guid: 3883eaf4f060f49468490969eb0de699,
+    type: 3}
+  goldLily: {fileID: 0}
+  pinkLily: {fileID: 2197261240735561747, guid: a8bc45c862629184ab5e849fe6dabbd3,
     type: 3}
 --- !u!61 &-8554120371845991550
 BoxCollider2D:
