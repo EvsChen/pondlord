@@ -22,7 +22,7 @@ public class Board : MonoBehaviour
                 newCell.GetComponent<Cell>().x = x;
                 newCell.GetComponent<Cell>().y = y;
                 RectTransform rectTransform = newCell.GetComponent<RectTransform>();
-            rectTransform.anchoredPosition = new Vector2((x * 100) + 50, (y * 100) + 50);
+            rectTransform.anchoredPosition = new Vector2(x * 100, y * 100);
             mAllCells[x, y] = newCell.GetComponent<Cell>();
             mAllCells[x, y].mBoard = this;
             if ((x + y) % 2 == 0) {
