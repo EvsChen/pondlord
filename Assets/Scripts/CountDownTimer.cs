@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CountDownTimer : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class CountDownTimer : MonoBehaviour
         if (currentTime <= 0)
         {
             currentTime = 0;
+            SceneManager.LoadScene("LoseScene");
             Debug.Log("Time ends! You lose");
         }
     }

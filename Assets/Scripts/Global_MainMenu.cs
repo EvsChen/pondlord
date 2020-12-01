@@ -27,6 +27,10 @@ public class Global_MainMenu : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
     public void QuitGame()
     {
         UnityEditor.EditorApplication.isPlaying = false;
