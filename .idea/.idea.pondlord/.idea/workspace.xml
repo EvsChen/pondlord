@@ -21,9 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0cdc69e2-2c7b-4b4f-82d6-dcdf54318859" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Cell.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon Unity Networking/Resources/PhotonServerSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +44,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PCNetwork.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CountDownTimer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Global_MainMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Global.cs" />
+        <option value="$PROJECT_DIR$/Assets/Cell.cs" />
       </list>
     </option>
   </component>
@@ -94,6 +97,7 @@
       <workItem from="1606789710811" duration="42000" />
       <workItem from="1606789760027" duration="164000" />
       <workItem from="1606791867692" duration="1691000" />
+      <workItem from="1606804339337" duration="440000" />
     </task>
     <servers />
   </component>
@@ -112,6 +116,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
