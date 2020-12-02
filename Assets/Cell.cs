@@ -16,7 +16,6 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
     public GameObject blueLily, whiteLily, goldLily, pinkLily;
     public GameObject mFishPrefab;
-    public GameObject mOverlay;
   
  
     // Start is called before the first frame update
@@ -30,7 +29,6 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         mGlobal = globalObj.GetComponent<Global>();
         mBgImg.color = mNormalColor;
         mContentImg.color = mNormalColor;
-        mOverlay = GameObject.Find("Overlay");
     }
     // Update is called once per frame
     void Update()

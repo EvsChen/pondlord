@@ -15,7 +15,7 @@ public class Global : MonoBehaviour
     // Start is called before the first frame update
     public LilyType mSelectedLilyType = LilyType.None;
     public Board mBoard;
-    float fishTimer = 0.0f, fishTimerMax = 5.0f; // Refresh fish every fishTimerMax secs
+    public float fishTimer = 0.0f, fishTimerMax = 10.0f; // Refresh fish every fishTimerMax secs
 
     void Start()
     {

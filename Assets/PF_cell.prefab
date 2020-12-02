@@ -175,11 +175,13 @@ MonoBehaviour:
     type: 3}
   whiteLily: {fileID: 1989492850192379268, guid: 3883eaf4f060f49468490969eb0de699,
     type: 3}
-  goldLily: {fileID: 0}
+  goldLily: {fileID: 1989492850192379268, guid: e2859b8ffe7a347dbb8f9a00c7ec3862,
+    type: 3}
   pinkLily: {fileID: 2197261240735561747, guid: a8bc45c862629184ab5e849fe6dabbd3,
     type: 3}
   mFishPrefab: {fileID: 6743274071933102970, guid: 495e4cf959c6740d29e77a14d44f9628,
     type: 3}
+  mOverlay: {fileID: 0}
 --- !u!61 &-8554120371845991550
 BoxCollider2D:
   m_ObjectHideFlags: 0
