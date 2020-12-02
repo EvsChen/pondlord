@@ -1,44 +1,68 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PCNetwork : Photon.PunBehaviour
+public class PCNetwork : Photon.MonoBehaviour
 {
-    // This is for Paint Ball networking at PC
-    // if you are looking for LOOK-1.b, please refer to PCNetwork_Cube.cs 
-    private string roomName;
+    /// <summary>Connect automatically? If false you can set this to true later on or call ConnectUsingSettings in your own scripts.</summary>
+    public bool AutoConnect = true;
 
-    private void Start()
+    public byte Version = 1;
+
+    /// <summary>if we don't want to connect in Start(), we have to "remember" if we called ConnectUsingSettings()</summary>
+    private bool ConnectInUpdate = true;
+
+
+    public virtual void Start()
     {
-        PhotonNetwork.ConnectUsingSettings("0.1");
-        roomName = GenerateRoomName();
-        PhotonNetwork.sendRate = 15;
-        PhotonNetwork.sendRateOnSerialize = 15;
+        PhotonNetwork.autoJoinLobby = false;    // we join randomly. always. no need to join a lobby to get the list of rooms.
     }
 
-    private void OnGUI()
+    public virtual void Update()
     {
-        GUI.contentColor = Color.red;
-        GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString() + " Room Name: " + roomName);
+        if (ConnectInUpdate && AutoConnect && !PhotonNetwork.connected)
+        {
+            Debug.Log("Update() was called by Unity. Scene is loaded. Let's connect to the Photon Master Server. Calling: PhotonNetwork.ConnectUsingSettings();");
+
+            ConnectInUpdate = false;
+            PhotonNetwork.ConnectUsingSettings(Version + "." + SceneManagerHelper.ActiveSceneBuildIndex);
+            //PhotonNetwork.ConnectToRegion(CloudRegionCode.eu, "1", "cluster3");       // connecting to a specific cluster may be necessary, when regions get sharded and you support friends
+        }
     }
 
-    public override void OnJoinedLobby()
+
+    // below, we implement some callbacks of PUN
+    // you can find PUN's callbacks in the class PunBehaviour or in enum PhotonNetworkingMessage
+
+
+    public virtual void OnConnectedToMaster()
     {
-        PhotonNetwork.CreateRoom(roomName);
+        Debug.Log("OnConnectedToMaster() was called by PUN. Now this client is connected and could join a room. Calling: PhotonNetwork.JoinRandomRoom();");
+        PhotonNetwork.JoinRandomRoom();
+        //PhotonNetwork.JoinRoom("pondlord");
     }
 
-    public override void OnPhotonJoinRoomFailed(object[] codeAndMsg)
+    public virtual void OnJoinedLobby()
     {
-        base.OnPhotonJoinRoomFailed(codeAndMsg);
+        Debug.Log("OnJoinedLobby(). This client is connected and does get a room-list, which gets stored as PhotonNetwork.GetRoomList(). This script now calls: PhotonNetwork.JoinRandomRoom();");
+        PhotonNetwork.JoinRandomRoom();
+        //PhotonNetwork.JoinRoom("pondlord");
     }
 
-    public override void OnCreatedRoom()
+    public virtual void OnPhotonRandomJoinFailed()
     {
-        base.OnCreatedRoom();
+        Debug.Log("OnPhotonRandomJoinFailed() was called by PUN. No random room available, so we create one. Calling: PhotonNetwork.CreateRoom(null, new RoomOptions() {maxPlayers = 4}, null);");
+        PhotonNetwork.CreateRoom(null, new RoomOptions() { MaxPlayers = 2 }, null);
     }
 
-    private static string GenerateRoomName()
+    // the following methods are implemented to give you some context. re-implement them as needed.
+
+    public virtual void OnFailedToConnectToPhoton(DisconnectCause cause)
     {
-        return "Pondlord";
+        Debug.LogError("Cause: " + cause);
     }
 
+    public void OnJoinedRoom()
+    {
+        Debug.Log("OnJoinedRoom() called by PUN. Now this client is in a room. From here on, your game would be running. For reference, all callbacks are listed in enum: PhotonNetworkingMessage");
+    }
 }

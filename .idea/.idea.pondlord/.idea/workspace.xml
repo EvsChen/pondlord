@@ -21,10 +21,32 @@
   <component name="ChangeListManager">
     <list default="true" id="0cdc69e2-2c7b-4b4f-82d6-dcdf54318859" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/contentModel.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/Assets/Cell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Cell.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Global.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon Unity Networking/Resources/PhotonServerSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Cell.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon Unity Networking/Resources/PhotonServerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/ConnectAndJoinRandom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/ConnectAndJoinRandom.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/pinkSeed.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/pinkSeed.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StartMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StartMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CountDownTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CountDownTimer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Global_MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Global_MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCNetwork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCNetwork.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sunlight.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sunlight.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blueSeed.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blueSeed.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/protector.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/protector.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/whiteSeed.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/whiteSeed.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,16 +58,26 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CountDownTimer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NetworkGUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Global_MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Global_MainMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Photon Unity Networking/Demos/DemoBoxes/ColorPerPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/ConnectAndJoinRandom.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NetworkGUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PCNetwork.cs" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/Assets/Scripts/CountDownTimer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Global_MainMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Global.cs" />
         <option value="$PROJECT_DIR$/Assets/Cell.cs" />
+=======
+        <option value="$PROJECT_DIR$/Assets/Cell.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CountDownTimer.cs" />
+>>>>>>> Stashed changes
       </list>
     </option>
   </component>
@@ -67,6 +99,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$USER_HOME$/Desktop/testNetwork/pondlord.app/Contents/MacOS/Pondlord" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop/testNetwork/pondlord.app/Contents/MacOS" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -97,7 +137,11 @@
       <workItem from="1606789710811" duration="42000" />
       <workItem from="1606789760027" duration="164000" />
       <workItem from="1606791867692" duration="1691000" />
+<<<<<<< Updated upstream
       <workItem from="1606804339337" duration="440000" />
+=======
+      <workItem from="1606894446518" duration="3745000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>

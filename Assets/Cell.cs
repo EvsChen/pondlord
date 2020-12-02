@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -46,25 +47,48 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         GameObject child;
         switch (mGlobal.mSelectedLilyType) {
             case LilyType.Gold: 
-              child = Instantiate(goldLily); // Satisfy compiler
+              child = PhotonNetwork.Instantiate(goldLily.name, Vector3.zero, quaternion.identity, 0); // Satisfy compiler
               break;
             case LilyType.Blue:
-              child = Instantiate(blueLily);
+              child = PhotonNetwork.Instantiate(blueLily.name, Vector3.zero, quaternion.identity, 0);;
               break;
             case LilyType.Pink:
-              child = Instantiate(pinkLily);
+              child = PhotonNetwork.Instantiate(pinkLily.name, Vector3.zero, quaternion.identity, 0);;
               break;
             case LilyType.White:
-              child = Instantiate(whiteLily);
+              child = PhotonNetwork.Instantiate(whiteLily.name, Vector3.zero, quaternion.identity, 0);;
               break;
             default:
-              child = Instantiate(whiteLily); // Satisfy compiler
+              child = PhotonNetwork.Instantiate(whiteLily.name, Vector3.zero, quaternion.identity, 0); // Satisfy compiler
               break;
         }
         child.transform.SetParent(gameObject.transform);
         child.transform.localPosition = new Vector3(50, 50, 0);
         child.transform.localScale = new Vector3(1, 1, 1);
         child.transform.localRotation = Quaternion.identity;
+<<<<<<< Updated upstream
+=======
+    }
+
+    public void OnPointerClick(PointerEventData eventData) {
+      Debug.Log("Number of players: " + PhotonNetwork.room.PlayerCount);
+      if (!PhotonNetwork.inRoom /*|| PhotonNetwork.room.PlayerCount != 2*/)
+      {
+        // only use PhotonNetwork.Instantiate while in a room.
+        return;
+      }
+      Debug.Log("Cell click");
+      if (GameConstants.sunlight <= 0)
+      {
+        GameConstants.enablePlant = false;
+      }
+      if (mGlobal.mSelectedLilyType != LilyType.None && GameConstants.enablePlant) {
+        Debug.Log("Cell click " + mGlobal.mSelectedLilyType.ToString("g"));
+        GameConstants.sunlight--;
+        GameObject.Find("sunlightText").GetComponent<Text>().text = "SunLight: " + GameConstants.sunlight;
+        PlantNewLily(mGlobal.mSelectedLilyType);
+        mGlobal.mSelectedLilyType = LilyType.None;
+>>>>>>> Stashed changes
       }
     }
 
