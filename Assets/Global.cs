@@ -10,22 +10,31 @@ public enum LilyType {
   White,
   None
 }
-
-public static class GameConstants {
-  public static int mBoardWidth = 8;
-  public static int mBoardHeight = 8;
-    public static int sunlight = 5;
-    public static bool enablePlant = true;
-}
-
 public class Global : MonoBehaviour
 {
     // Start is called before the first frame update
     public LilyType mSelectedLilyType = LilyType.None;
+    public Board mBoard;
+    float fishTimer = 0.0f, fishTimerMax = 5.0f; // Refresh fish every fishTimerMax secs
 
     void Start()
     {
-        
+        GameObject boardObj = GameObject.Find("PF_board");
+        mBoard = boardObj.GetComponent<Board>();
+    }
+
+    void AddFish() {
+      bool added = false;
+      while (!added) {
+        int rX = Random.Range(0, GameConstants.mBoardWidth);
+        int rY = Random.Range(0, GameConstants.mBoardHeight);
+        Cell cell = mBoard.mAllCells[rX, rY];
+        if (cell.HasFish()) {
+          continue;
+        }
+        added = true;
+        cell.AddFish();
+      }
     }
 
     // Update is called once per frame
@@ -33,8 +42,6 @@ public class Global : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-
-
             RaycastHit2D hit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition)); //edit in your raycast settings
             if (hit)
             {
@@ -51,6 +58,11 @@ public class Global : MonoBehaviour
                     }
                 }
             }
+        }
+        fishTimer += Time.deltaTime;
+        if (fishTimer > fishTimerMax) {
+          AddFish();
+          fishTimer = 0.0f;
         }
     }
 

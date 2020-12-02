@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class whiteLily : BaseLily
 {
-    public GameObject protector;
+    public GameObject mProtector;
 
     // Start is called before the first frame update
     new void Start()
@@ -19,7 +19,10 @@ public class whiteLily : BaseLily
       base.Update();  
       if (functional)
       {
-          Instantiate(protector, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+          GameObject c = Instantiate(mProtector, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+          protector p = c.GetComponent<protector>();
+          p.mPlayerId = mPlayerId;
+          c.transform.parent = transform;
           functional = false;
       }
     }

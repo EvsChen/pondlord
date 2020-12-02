@@ -28,7 +28,9 @@
                 int newY = cell.y;
                 int mWidth = mBoard.mWidth;
                 int mHeight = mBoard.mHeight;
-                float t = Random.Range(0, 4);
+                int t = Random.Range(0, 4);
+                // Here we cannot instantiate the pink lily within the same pink lily.
+                // So move the instantiation method to cell instead.
                 switch (t)
                 {
                     case 0:

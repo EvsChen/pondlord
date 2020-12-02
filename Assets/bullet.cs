@@ -40,16 +40,22 @@ public class bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-      if (collision.gameObject.CompareTag("cell")) {
+      if (collision.gameObject.CompareTag(GameConstants.Tags.cell)) {
         Physics2D.IgnoreCollision(mCollider, collision.collider);
         return;
       } 
-      if (collision.gameObject.CompareTag("lily")) {
+      if (collision.gameObject.CompareTag(GameConstants.Tags.lily)) {
         BaseLily bl = collision.gameObject.GetComponent<BaseLily>();
         if (bl.mPlayerId == mPlayerId) {
           Physics2D.IgnoreCollision(mCollider, collision.collider);
           return;
         }
+      } else if (collision.gameObject.CompareTag(GameConstants.Tags.protector)) {
+        protector p = collision.gameObject.GetComponent<protector>();
+        if (p.mPlayerId == mPlayerId) {
+          Physics2D.IgnoreCollision(mCollider, collision.collider);
+          return;
+        } 
       }
       Destroy(gameObject);
     }

@@ -100,7 +100,8 @@ MonoBehaviour:
   mImage: {fileID: 0}
   sunlight: {fileID: 3877209044538162937, guid: f2f231e5cde3bce4e8985e0eb387776a,
     type: 3}
-  protector: {fileID: 7140222623361038239, guid: 05e28de4dc55ef743a846de5ed746ae7,
+  mPlayerId: 0
+  mProtector: {fileID: 7140222623361038239, guid: 05e28de4dc55ef743a846de5ed746ae7,
     type: 3}
 --- !u!1 &2221214538124203627
 GameObject:

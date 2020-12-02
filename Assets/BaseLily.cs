@@ -21,7 +21,7 @@ public class BaseLily : MonoBehaviour
     public void ResetLily() {
       progress = 0;
       state = 1;
-      hp = 2;
+      hp = 2; // Should not be reset here
     }
 
     public void Start()
@@ -42,7 +42,7 @@ public class BaseLily : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-      if (collision.gameObject.CompareTag("bullet"))
+      if (collision.gameObject.CompareTag(GameConstants.Tags.bullet))
       {
         bullet b = collision.gameObject.GetComponent<bullet>();
         if (b.mPlayerId == this.mPlayerId) {

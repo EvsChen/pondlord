@@ -15,6 +15,9 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     public int y;
 
     public GameObject blueLily, whiteLily, goldLily, pinkLily;
+    public GameObject mFishPrefab;
+    public GameObject mOverlay;
+  
  
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,7 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         mGlobal = globalObj.GetComponent<Global>();
         mBgImg.color = mNormalColor;
         mContentImg.color = mNormalColor;
+        mOverlay = GameObject.Find("Overlay");
     }
     // Update is called once per frame
     void Update()
@@ -35,7 +39,7 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     }
 
     public void PlantNewLily(LilyType type) {
-       GameObject child;
+      GameObject child;
       switch (type) {
             case LilyType.Gold: 
               child = Instantiate(goldLily); // Satisfy compiler
@@ -57,16 +61,15 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         child.transform.localPosition = new Vector3(50, 50, 0);
         child.transform.localScale = new Vector3(1, 1, 1);
         child.transform.localRotation = Quaternion.identity;
+        ReorderComponent();
     }
 
     public void OnPointerClick(PointerEventData eventData) {
-      Debug.Log("Cell click");
       if (GameConstants.sunlight <= 0)
       {
         GameConstants.enablePlant = false;
       }
       if (mGlobal.mSelectedLilyType != LilyType.None && GameConstants.enablePlant) {
-        Debug.Log("Cell click " + mGlobal.mSelectedLilyType.ToString("g"));
         GameConstants.sunlight--;
         GameObject.Find("sunlightText").GetComponent<Text>().text = "SunLight: " + GameConstants.sunlight;
         PlantNewLily(mGlobal.mSelectedLilyType);
@@ -76,7 +79,6 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("The cursor entered the selectable UI element.");
         Color newColor = mNormalColor;
         newColor.a = 0.8f;
         mBgImg.color = newColor;
@@ -84,8 +86,47 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
     public void OnPointerExit(PointerEventData eventData)
     {
-      Debug.Log("The cursor exited the selectable UI element.");
       mBgImg.color = mNormalColor;
+    }
+
+    public bool HasFish() {
+      for (int i = 0; i < transform.childCount; i++) {
+        GameObject c = transform.GetChild(i).gameObject;
+        if (c.CompareTag(GameConstants.Tags.fish)) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    public void ReorderComponent() {
+      GameObject contentImg = null, lily = null, fish = null;
+      for (int i = 0; i < transform.childCount; i++) {
+        GameObject c = transform.GetChild(i).gameObject;
+        if (c.name == "contentImg") {
+          contentImg = c;
+        } else if (c.CompareTag(GameConstants.Tags.lily)) {
+          lily = c;
+        } else if (c.CompareTag(GameConstants.Tags.fish)) {
+          fish = c;
+        }
+      }
+      contentImg.transform.SetAsLastSibling();
+      if (lily) {
+        lily.transform.SetAsLastSibling();
+      }
+      if (fish) {
+        fish.transform.SetAsLastSibling();
+      }
+    }
+
+    public void AddFish() {
+      GameObject child = Instantiate(mFishPrefab);
+      child.transform.SetParent(transform);
+      child.transform.localPosition = new Vector3(50, 50, 0);
+      child.transform.localScale = new Vector3(1, 1, 1);
+      child.transform.localRotation = Quaternion.identity;
+      ReorderComponent();
     }
 
 }

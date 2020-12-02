@@ -178,6 +178,8 @@ MonoBehaviour:
   goldLily: {fileID: 0}
   pinkLily: {fileID: 2197261240735561747, guid: a8bc45c862629184ab5e849fe6dabbd3,
     type: 3}
+  mFishPrefab: {fileID: 6743274071933102970, guid: 495e4cf959c6740d29e77a14d44f9628,
+    type: 3}
 --- !u!61 &-8554120371845991550
 BoxCollider2D:
   m_ObjectHideFlags: 0
