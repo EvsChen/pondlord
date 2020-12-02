@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4565390554405296777}
   m_Layer: 5
   m_Name: blueSeed
-  m_TagString: Untagged
+  m_TagString: lily
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,16 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 669148e805532104c80ca86accbe6ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pb: {fileID: 0}
-  progress: 0
   state: 1
   flower: {fileID: 21300000, guid: 3fa4318b3800c4570a439aa61a3d0940, type: 3}
   leaf: {fileID: 21300000, guid: e6bc92b4521894e719c15dc4ea39e375, type: 3}
   mImage: {fileID: 0}
-  hp: 2
-  bullet: {fileID: 7006769034257026729, guid: 36018290ae6b0e045a5072699cceb884, type: 3}
   sunlight: {fileID: 3877209044538162937, guid: f2f231e5cde3bce4e8985e0eb387776a,
     type: 3}
+  bullet: {fileID: 7006769034257026729, guid: 36018290ae6b0e045a5072699cceb884, type: 3}
 --- !u!61 &5777874018472390774
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ TagManager:
   - ObjButton
   - LilyButton
   - bullet
+  - cell
+  - lily
   layers:
   - Default
   - TransparentFX

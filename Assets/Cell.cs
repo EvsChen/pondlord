@@ -19,7 +19,6 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     // Start is called before the first frame update
     void Start()
     {
-      
         mRectTransform = GetComponent<RectTransform>();
         mBgImg = GetComponent<Image>();
         GameObject c = transform.GetChild(0).gameObject;
@@ -35,18 +34,9 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         
     }
 
-    public void OnPointerClick(PointerEventData eventData) {
-      Debug.Log("Cell click");
-      if (GameConstants.sunlight <= 0)
-      {
-        GameConstants.enablePlant = false;
-      }
-      if (mGlobal.mSelectedLilyType != LilyType.None && GameConstants.enablePlant) {
-        Debug.Log("Cell click " + mGlobal.mSelectedLilyType.ToString("g"));
-        GameConstants.sunlight--;
-        GameObject.Find("sunlightText").GetComponent<Text>().text = "SunLight: " + GameConstants.sunlight;
-        GameObject child;
-        switch (mGlobal.mSelectedLilyType) {
+    public void PlantNewLily(LilyType type) {
+       GameObject child;
+      switch (type) {
             case LilyType.Gold: 
               child = Instantiate(goldLily); // Satisfy compiler
               break;
@@ -67,7 +57,19 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         child.transform.localPosition = new Vector3(50, 50, 0);
         child.transform.localScale = new Vector3(1, 1, 1);
         child.transform.localRotation = Quaternion.identity;
+    }
 
+    public void OnPointerClick(PointerEventData eventData) {
+      Debug.Log("Cell click");
+      if (GameConstants.sunlight <= 0)
+      {
+        GameConstants.enablePlant = false;
+      }
+      if (mGlobal.mSelectedLilyType != LilyType.None && GameConstants.enablePlant) {
+        Debug.Log("Cell click " + mGlobal.mSelectedLilyType.ToString("g"));
+        GameConstants.sunlight--;
+        GameObject.Find("sunlightText").GetComponent<Text>().text = "SunLight: " + GameConstants.sunlight;
+        PlantNewLily(mGlobal.mSelectedLilyType);
         mGlobal.mSelectedLilyType = LilyType.None;
       }
     }
