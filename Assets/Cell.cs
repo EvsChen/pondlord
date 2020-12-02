@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -40,19 +41,19 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
       GameObject child;
       switch (type) {
             case LilyType.Gold: 
-              child = Instantiate(goldLily); // Satisfy compiler
+              child = PhotonNetwork.Instantiate(goldLily.name, Vector3.zero, quaternion.identity, 0); // Satisfy compiler
               break;
             case LilyType.Blue:
-              child = Instantiate(blueLily);
+              child = PhotonNetwork.Instantiate(blueLily.name, Vector3.zero, quaternion.identity, 0);
               break;
             case LilyType.Pink:
-              child = Instantiate(pinkLily);
+              child = PhotonNetwork.Instantiate(pinkLily.name, Vector3.zero, quaternion.identity, 0);
               break;
             case LilyType.White:
-              child = Instantiate(whiteLily);
+              child = PhotonNetwork.Instantiate(whiteLily.name, Vector3.zero, quaternion.identity, 0);
               break;
             default:
-              child = Instantiate(whiteLily); // Satisfy compiler
+              child = PhotonNetwork.Instantiate(whiteLily.name, Vector3.zero, quaternion.identity, 0); // Satisfy compiler
               break;
         }
         child.transform.SetParent(gameObject.transform);
@@ -63,6 +64,11 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     }
 
     public void OnPointerClick(PointerEventData eventData) {
+      if (!PhotonNetwork.inRoom /*|| PhotonNetwork.room.PlayerCount != 2*/)
+      {
+        return;
+      }
+      
       if (GameConstants.sunlight <= 0)
       {
         GameConstants.enablePlant = false;
