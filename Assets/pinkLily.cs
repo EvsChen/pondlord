@@ -33,42 +33,48 @@
                 // So move the instantiation method to cell instead.
                 switch (t)
                 {
+                 
                     case 0:
-                        if (newX + 1 < mWidth && mAllCells[newX + 1, newY].transform.childCount == 1)
+                    if (newX + 1 < mWidth && mAllCells[newX + 1, newY].transform.childCount == 1)
                         {
                             Cell c = mAllCells[newX + 1, newY];
                             c.PlantNewLily(LilyType.Pink);
+                            functional = false;
                         }
                         break;
                     case 1:
-                        if (newX - 1 > 0 && mAllCells[newX - 1, newY].transform.childCount == 1)
+                    if (newX - 1 > 0 && mAllCells[newX - 1, newY].transform.childCount == 1)
                         {
                             Cell c = mAllCells[newX - 1, newY];
                             c.PlantNewLily(LilyType.Pink);
+                            functional = false;
                         }
                         break;
                     case 2:
-                        if (newY + 1 < mHeight && mAllCells[newX, newY + 1].transform.childCount == 1)
+                    if (newY + 1 < mHeight && mAllCells[newX, newY + 1].transform.childCount == 1)
                         {
                             Cell c = mAllCells[newX, newY + 1];
                             c.PlantNewLily(LilyType.Pink);
+                            functional = false;
                         }
                         break;
                     case 3:
-                        if (newY - 1 > 0 && mAllCells[newX, newY - 1].transform.childCount == 1)
+                    if (newY - 1 > 0 && mAllCells[newX, newY - 1].transform.childCount == 1)
                         {
                             Cell c = mAllCells[newX, newY - 1];
                             c.PlantNewLily(LilyType.Pink);
+                            functional = false;
                         }
                         break;
+            }
                 }
-                functional = false;
+                
                 
             }
 
 
         }
-    }
+    
 
 
 
