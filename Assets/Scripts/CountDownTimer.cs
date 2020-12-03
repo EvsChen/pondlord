@@ -27,10 +27,10 @@ public class CountDownTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!PhotonNetwork.inRoom || PhotonNetwork.room.PlayerCount != 2)
+        /*if (!PhotonNetwork.inRoom || PhotonNetwork.room.PlayerCount != 2)
         {
             return;
-        }
+        }*/
         
         currentTime -= Time.deltaTime;
         

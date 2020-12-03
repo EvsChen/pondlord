@@ -302,7 +302,9 @@
         <e p="Scripts" t="Include">
           <e p="CountDownTimer.cs" t="Include" />
           <e p="Global_MainMenu.cs" t="Include" />
+          <e p="NetworkGUI.cs" t="Include" />
           <e p="PCNetwork.cs" t="Include" />
+          <e p="PlayerInRoomGUI.cs" t="Include" />
         </e>
         <e p="SoftEffects" t="Include">
           <e p="Scripts" t="Include">
