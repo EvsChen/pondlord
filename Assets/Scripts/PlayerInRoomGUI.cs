@@ -9,7 +9,7 @@ public class PlayerInRoomGUI : PunBehaviour
     /// <summary>
     /// Defines the available colors per room. There should be at least one color per available player spot.
     /// </summary>
-    public Color[] Colors = new Color[] { Color.red, Color.blue, Color.yellow, Color.green };
+    public Color[] Colors = new Color[] { Color.blue, Color.yellow, Color.green };
 
     /// <summary>
     /// Property-key for Player Color. the value will be the index of the player's color in array Colors (0...)
@@ -102,26 +102,35 @@ public class PlayerInRoomGUI : PunBehaviour
     // simple UI to show color
     private void OnGUI()
     {
-        if (!this.ColorPicked || !this.ShowColorLabel)
-        {
-            return;
-        }
-        GUILayout.Label("Number of players: " + PhotonNetwork.room.PlayerCount);
-        GUILayout.Label("");
+	    if (!this.ColorPicked || !this.ShowColorLabel)
+	    {
+		    return;
+	    }
+	    GUIStyle style1 = new GUIStyle();
+	    style1.fontSize = 25;
+	    style1.normal.textColor = Color.white;
+	    
+	    GUILayout.Label("\n Number of players: " + PhotonNetwork.room.PlayerCount, style1);
+	    GUILayout.Label("");
+	    GUILayout.Label("");
+	    GUILayout.Label("");
+	    GUILayout.Label("");
         
-        GUILayout.BeginArea(this.ColorLabelArea);
+	    GUILayout.BeginArea(this.ColorLabelArea);
 		
-        GUILayout.BeginHorizontal();
-        Color c = GUI.color;
-        GUI.color = this.MyColor;
-        GUILayout.Label(this.img);
-        GUI.color = c;
+	    GUILayout.BeginHorizontal();
+	    Color c = GUI.color;
+	    GUI.color = this.MyColor;
+	    GUILayout.Label(this.img);
+	    GUI.color = c;
 
-        
-        string playerNote = (PhotonNetwork.isMasterClient) ? "is your color\nyou are the Master Client" : "is your color";
-        GUILayout.Label(playerNote);
-        GUILayout.EndHorizontal();
+	    GUIStyle style2 = new GUIStyle();
+	    style2.fontSize = 20;
+	    style2.normal.textColor = this.MyColor;
+	    string playerNote = " In room";
+	    GUILayout.Label(playerNote, style2);
+	    GUILayout.EndHorizontal();
 		
-        GUILayout.EndArea();
+	    GUILayout.EndArea();
     }
 }
