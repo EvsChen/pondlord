@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,8 +18,10 @@ public class Board : MonoBehaviour
         mAllCells = new Cell[mWidth, mHeight];
         
         for (int y = 0; y < mHeight; y++) {
-          for (int x = 0; x < mWidth; x++) {
-            GameObject newCell = Instantiate(mCellPrefab, transform);
+          for (int x = 0; x < mWidth; x++)
+          {
+              GameObject newCell = Instantiate(mCellPrefab, transform);
+            //GameObject newCell = PhotonNetwork.Instantiate(mCellPrefab.name, transform.position, transform.rotation, 0);
             newCell.GetComponent<Cell>().x = x;
             newCell.GetComponent<Cell>().y = y;
             RectTransform rectTransform = newCell.GetComponent<RectTransform>();
