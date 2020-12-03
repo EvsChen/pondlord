@@ -26,9 +26,9 @@ public class Board : MonoBehaviour
             mAllCells[x, y] = newCell.GetComponent<Cell>();
             mAllCells[x, y].mBoard = this;
             if ((x + y) % 2 == 0) {
-              mAllCells[x, y].mNormalColor = new Color(0.9f, 0.85f, 0.72f, 1.0f);
+              mAllCells[x, y].mNormalColor = new Color(0.9f, 0.85f, 0.72f, 0.1f);
             } else {
-              mAllCells[x, y].mNormalColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+              mAllCells[x, y].mNormalColor = new Color(1.0f, 1.0f, 1.0f, 0.1f);
             }
           }
         }

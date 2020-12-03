@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8113208, g: 0.22579211, b: 0.22579211, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -181,7 +181,6 @@ MonoBehaviour:
     type: 3}
   mFishPrefab: {fileID: 6743274071933102970, guid: 495e4cf959c6740d29e77a14d44f9628,
     type: 3}
-  mOverlay: {fileID: 0}
 --- !u!61 &-8554120371845991550
 BoxCollider2D:
   m_ObjectHideFlags: 0
