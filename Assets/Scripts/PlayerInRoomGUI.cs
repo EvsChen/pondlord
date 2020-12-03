@@ -102,6 +102,7 @@ public class PlayerInRoomGUI : PunBehaviour
     // simple UI to show color
     private void OnGUI()
     {
+	    
 	    if (!this.ColorPicked || !this.ShowColorLabel)
 	    {
 		    return;
@@ -127,8 +128,20 @@ public class PlayerInRoomGUI : PunBehaviour
 	    GUIStyle style2 = new GUIStyle();
 	    style2.fontSize = 20;
 	    style2.normal.textColor = this.MyColor;
-	    string playerNote = " In room";
-	    GUILayout.Label(playerNote, style2);
+
+	    GUILayout.Label("You join \n", style2);
+	    GUILayout.Label(" ", style2);
+	    
+	    foreach (var player in PhotonNetwork.otherPlayers)
+	    {
+		    GUI.color = Color.red;
+		    GUILayout.Label(this.img);
+		    GUI.color = c;
+		    style2.normal.textColor = Color.red;
+		    GUILayout.Label("Player2", style2);
+	    }
+	    //string playerNote = " In room";
+	    //GUILayout.Label(playerNote, style2);
 	    GUILayout.EndHorizontal();
 		
 	    GUILayout.EndArea();

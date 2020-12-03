@@ -11975,18 +11975,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Colors:
-  - {r: 0.7607844, g: 0, b: 0.7607844, a: 1}
-  - {r: 0, g: 0, b: 1, a: 1}
-  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  - {r: 0, g: 0.12644672, b: 1, a: 1}
+  - {r: 1, g: 0.71392024, b: 0, a: 1}
+  - {r: 0.7381103, g: 0.015686274, b: 1, a: 1}
   - {r: 0, g: 1, b: 0, a: 1}
   ShowColorLabel: 1
   ColorLabelArea:
     serializedVersion: 2
     x: 0
     y: 70
-    width: 100
+    width: 200
     height: 200
-  img: {fileID: 0}
+  img: {fileID: 2800000, guid: e824c90b700b59a48bb75bf8ac3b5682, type: 3}
   MyColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!114 &1835297995
 MonoBehaviour:
