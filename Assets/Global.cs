@@ -21,6 +21,17 @@ public class Global : MonoBehaviour
     {
         GameObject boardObj = GameObject.Find("PF_board");
         mBoard = boardObj.GetComponent<Board>();
+        
+        //Set gamemode
+        GameObject GamemodeObj = GameObject.Find("Gamemode");
+        Text GamemodeText = GamemodeObj.GetComponent<Text>();
+        if (PlayerPrefs.GetInt("Gamemode") == 0)
+        {
+            GamemodeText.text = "Cooperative Mode";
+        } else if (PlayerPrefs.GetInt("Gamemode") == 1)
+        {
+            GamemodeText.text = "Competitive Mode";
+        }
     }
 
     void AddFish() {

@@ -22,6 +22,7 @@ public class Global_MainMenu : MonoBehaviour
         if (PhotonNetwork.room.PlayerCount > 0)
         {
             SceneManager.LoadScene("SampleScene");
+            PlayerPrefs.SetInt("Gamemode", 1);
         }
     }
     
@@ -30,6 +31,7 @@ public class Global_MainMenu : MonoBehaviour
         if (PhotonNetwork.room.PlayerCount > 0)
         {
             SceneManager.LoadScene("SampleScene");
+            PlayerPrefs.SetInt("Gamemode", 0);
         }
     }
 
