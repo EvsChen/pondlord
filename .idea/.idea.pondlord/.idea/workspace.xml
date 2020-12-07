@@ -21,23 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0cdc69e2-2c7b-4b4f-82d6-dcdf54318859" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BaseLily.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BaseLily.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Board.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Board.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Cell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Cell.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Global.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GoldLily.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GoldLily.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon Unity Networking/Resources/PhotonServerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fish.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fish.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PF_fish.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PF_fish.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/PF_cell.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PF_cell.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/blueSeed.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/blueSeed.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/goldSeed.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/goldSeed.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/pinkSeed.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/pinkSeed.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/whiteSeed.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/whiteSeed.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StartMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StartMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Global_MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Global_MainMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/blueLily.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/blueLily.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/pinkLily.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/pinkLily.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/whiteLily.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/whiteLily.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +62,7 @@
         <option value="$PROJECT_DIR$/Assets/pinkLily.cs" />
         <option value="$PROJECT_DIR$/Assets/BaseLily.cs" />
         <option value="$PROJECT_DIR$/Assets/Cell.cs" />
+        <option value="$PROJECT_DIR$/Assets/Fish.cs" />
       </list>
     </option>
   </component>
@@ -133,7 +123,7 @@
       <workItem from="1606789760027" duration="164000" />
       <workItem from="1606791867692" duration="1691000" />
       <workItem from="1606961139247" duration="4606000" />
-      <workItem from="1607155459857" duration="15230000" />
+      <workItem from="1607155459857" duration="16080000" />
     </task>
     <servers />
   </component>

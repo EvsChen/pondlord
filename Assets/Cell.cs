@@ -165,11 +165,8 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
 
     public void AddFish() {
-      GameObject child = Instantiate(mFishPrefab);
-      child.transform.SetParent(transform);
-      child.transform.localPosition = new Vector3(50, 50, 0);
-      child.transform.localScale = new Vector3(1, 1, 1);
-      child.transform.localRotation = Quaternion.identity;
+      GameObject child = PhotonNetwork.Instantiate(mFishPrefab.name, Vector3.zero, quaternion.identity, 0);
+      child.GetComponent<Fish>().parentID = viewid;
       ReorderComponent();
     }
     
