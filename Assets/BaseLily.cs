@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BaseLily : MonoBehaviour
+public class BaseLily : Photon.MonoBehaviour
 {
     GameObject mPbComponent;
     ProgressBar Pb;
@@ -17,7 +17,7 @@ public class BaseLily : MonoBehaviour
     protected bool generateSun = false;
     protected bool functional = false;
     public int mPlayerId; // Used to distinguish player
-
+    public int parentID = -1;
     public void ResetLily() {
       progress = 0;
       state = 1;
@@ -61,6 +61,10 @@ public class BaseLily : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        gameObject.transform.SetParent(PhotonView.Find(parentID).transform);
+        gameObject.transform.localPosition = new Vector3(50, 50, 0);
+        gameObject.transform.localScale = new Vector3(1, 1, 1);
+        
         if(this.progress < 100f)
         {
           updateTimer += Time.deltaTime;
@@ -98,4 +102,5 @@ public class BaseLily : MonoBehaviour
             }
         }
     }
+    
 }

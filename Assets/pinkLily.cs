@@ -38,7 +38,7 @@
                     if (newX + 1 < mWidth && mAllCells[newX + 1, newY].transform.childCount == 1)
                         {
                             Cell c = mAllCells[newX + 1, newY];
-                            c.PlantNewLily(LilyType.Pink);
+                            //c.PlantNewLily(LilyType.Pink);
                             functional = false;
                         }
                         break;
@@ -46,7 +46,7 @@
                     if (newX - 1 > 0 && mAllCells[newX - 1, newY].transform.childCount == 1)
                         {
                             Cell c = mAllCells[newX - 1, newY];
-                            c.PlantNewLily(LilyType.Pink);
+                            //c.PlantNewLily(LilyType.Pink);
                             functional = false;
                         }
                         break;
@@ -54,7 +54,7 @@
                     if (newY + 1 < mHeight && mAllCells[newX, newY + 1].transform.childCount == 1)
                         {
                             Cell c = mAllCells[newX, newY + 1];
-                            c.PlantNewLily(LilyType.Pink);
+                            //c.PlantNewLily(LilyType.Pink);
                             functional = false;
                         }
                         break;
@@ -62,7 +62,7 @@
                     if (newY - 1 > 0 && mAllCells[newX, newY - 1].transform.childCount == 1)
                         {
                             Cell c = mAllCells[newX, newY - 1];
-                            c.PlantNewLily(LilyType.Pink);
+                            //c.PlantNewLily(LilyType.Pink);
                             functional = false;
                         }
                         break;
@@ -71,9 +71,19 @@
                 
                 
             }
-
-
+        
+        void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+        {
+            if (stream.isWriting)
+            {
+                stream.SendNext(parentID);
+            }
+            else
+            {
+                parentID = (int)stream.ReceiveNext();
+            }
         }
+    }
     
 
 

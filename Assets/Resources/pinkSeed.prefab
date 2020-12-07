@@ -176,6 +176,7 @@ MonoBehaviour:
   sunlight: {fileID: 3877209044538162937, guid: f2f231e5cde3bce4e8985e0eb387776a,
     type: 3}
   mPlayerId: 0
+  parentID: -1
   mSeedSprite: {fileID: 21300000, guid: 70989e5531a1ed04684f11a3a52c04d2, type: 3}
   mPinkSeedPrefab: {fileID: 2197261240735561747}
   mBoard: {fileID: 0}
@@ -201,6 +202,7 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 2197261240735561756}
+  - {fileID: 423941172996838805}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1

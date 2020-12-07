@@ -26,4 +26,16 @@ public class whiteLily : BaseLily
           functional = false;
       }
     }
+    
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            stream.SendNext(parentID);
+        }
+        else
+        {
+            parentID = (int)stream.ReceiveNext();
+        }
+    }
 }

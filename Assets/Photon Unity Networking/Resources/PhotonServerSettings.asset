@@ -43,4 +43,7 @@ MonoBehaviour:
   - RequestForPickupItems
   - RequestForPickupTimes
   - TaggedPlayer
+  - PlantNewLilyPun
+  - setParent
+  - PlantNewLily
   DisableAutoOpenWizard: 1
