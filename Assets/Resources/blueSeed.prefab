@@ -55,6 +55,7 @@ MonoBehaviour:
   sunlight: {fileID: 3877209044538162937, guid: f2f231e5cde3bce4e8985e0eb387776a,
     type: 3}
   mPlayerId: 0
+  parentID: -1
   bullet: {fileID: 7006769034257026729, guid: 36018290ae6b0e045a5072699cceb884, type: 3}
 --- !u!61 &5777874018472390774
 BoxCollider2D:
@@ -125,6 +126,7 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 1317359399715567883}
+  - {fileID: 1317359399715567877}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1

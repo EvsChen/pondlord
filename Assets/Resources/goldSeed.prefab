@@ -102,6 +102,7 @@ MonoBehaviour:
   sunlight: {fileID: 3877209044538162937, guid: f2f231e5cde3bce4e8985e0eb387776a,
     type: 3}
   mPlayerId: 0
+  parentID: -1
 --- !u!114 &-4059075162931637237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +125,7 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 1989492850192379275}
+  - {fileID: 4022071415675988331}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1

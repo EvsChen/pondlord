@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public enum LilyType {
   Gold,
@@ -17,20 +19,25 @@ public class Global : MonoBehaviour
     public Board mBoard;
     public float fishTimer = 0.0f, fishTimerMax = 10.0f; // Refresh fish every fishTimerMax secs
 
+    public Canvas canvas;
     void Start()
     {
-        GameObject boardObj = GameObject.Find("PF_board");
-        mBoard = boardObj.GetComponent<Board>();
+        if (PhotonNetwork.player.IsMasterClient)
+        {
+            PhotonNetwork.Instantiate(canvas.name, Vector3.zero, quaternion.identity, 0);
+            GameObject boardObj = GameObject.Find("PF_board");
+            mBoard = boardObj.GetComponent<Board>();
         
-        //Set gamemode
-        GameObject GamemodeObj = GameObject.Find("Gamemode");
-        Text GamemodeText = GamemodeObj.GetComponent<Text>();
-        if (PlayerPrefs.GetInt("Gamemode") == 0)
-        {
-            GamemodeText.text = "Cooperative Mode";
-        } else if (PlayerPrefs.GetInt("Gamemode") == 1)
-        {
-            GamemodeText.text = "Competitive Mode";
+            //Set gamemode
+            GameObject GamemodeObj = GameObject.Find("Gamemode");
+            Text GamemodeText = GamemodeObj.GetComponent<Text>();
+            if (PlayerPrefs.GetInt("Gamemode") == 0)
+            {
+                GamemodeText.text = "Cooperative Mode";
+            } else if (PlayerPrefs.GetInt("Gamemode") == 1)
+            {
+                GamemodeText.text = "Competitive Mode";
+            }
         }
     }
 

@@ -8,7 +8,7 @@ public class Global_MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        PhotonNetwork.automaticallySyncScene = true; 
     }
 
     // Update is called once per frame
@@ -21,7 +21,8 @@ public class Global_MainMenu : MonoBehaviour
     {
         if (PhotonNetwork.room.PlayerCount > 0)
         {
-            SceneManager.LoadScene("SampleScene");
+            PhotonNetwork.LoadLevel("SampleScene");
+            //SceneManager.LoadScene("SampleScene");
             PlayerPrefs.SetInt("Gamemode", 1);
         }
     }
@@ -30,14 +31,15 @@ public class Global_MainMenu : MonoBehaviour
     {
         if (PhotonNetwork.room.PlayerCount > 0)
         {
-            SceneManager.LoadScene("SampleScene");
+            PhotonNetwork.LoadLevel("SampleScene");
+            //SceneManager.LoadScene("SampleScene");
             PlayerPrefs.SetInt("Gamemode", 0);
         }
     }
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        PhotonNetwork.LoadLevel("SampleScene");
     }
     public void QuitGame()
     {
