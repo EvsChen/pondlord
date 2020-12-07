@@ -53,7 +53,7 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
 
     
-    void PlantNewLily(LilyType type)
+    public void PlantNewLily(LilyType type)
     {
       GameObject child;
       //  switch (type) {

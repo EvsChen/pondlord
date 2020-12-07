@@ -17,6 +17,20 @@ public class PlayerInRoomGUI : MonoBehaviour
     
     private void Start()
     {
+        if (playerNum == null)
+        {
+            playerNum = GameObject.Find("PlayerNum");
+        }
+
+        if (playerSign == null)
+        {
+            playerSign = GameObject.Find("PlayerIndicator");
+        }
+
+        if (otherplayerSign == null)
+        {
+            otherplayerSign = GameObject.Find("OtherPlayerIndicator");
+        }
         numText = playerNum.GetComponent<TextMeshProUGUI>();
     }
 
