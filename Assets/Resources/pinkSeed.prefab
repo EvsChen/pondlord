@@ -177,6 +177,8 @@ MonoBehaviour:
     type: 3}
   mPlayerId: 0
   parentID: -1
+  photonView: {fileID: 0}
+  viewid: -1
   mSeedSprite: {fileID: 21300000, guid: 70989e5531a1ed04684f11a3a52c04d2, type: 3}
   mPinkSeedPrefab: {fileID: 2197261240735561747}
   mBoard: {fileID: 0}
@@ -203,6 +205,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 2197261240735561756}
   - {fileID: 423941172996838805}
+  - {fileID: 6636388159344537953}
+  - {fileID: 3705768243287808926}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1

@@ -103,6 +103,8 @@ MonoBehaviour:
     type: 3}
   mPlayerId: 0
   parentID: -1
+  photonView: {fileID: 0}
+  viewid: -1
 --- !u!114 &-4059075162931637237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +128,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1989492850192379275}
   - {fileID: 4022071415675988331}
+  - {fileID: 6483788863968208118}
+  - {fileID: 3931551032679878153}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1

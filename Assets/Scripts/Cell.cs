@@ -51,7 +51,7 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
       if (Time.time - starttime < 2f)
       {
-        Debug.Log((Time.time - starttime));
+        //Debug.Log((Time.time - starttime));
         SyncCell();
       }
     }
