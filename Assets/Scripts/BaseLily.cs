@@ -116,6 +116,7 @@ public class BaseLily : Photon.MonoBehaviour
     }
     public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log(this.gameObject.name);
         bool beeEvolve = GameObject.Find("Global").GetComponent<Global>().beeEvolve;
         if (beeEvolve)
         {

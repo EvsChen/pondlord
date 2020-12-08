@@ -184,7 +184,7 @@ public class Cell : Photon.PunBehaviour, IPointerEnterHandler, IPointerExitHandl
             {
                 frog = c;
             }
-            contentImg.transform.SetAsLastSibling();
+            //contentImg.transform.SetAsLastSibling();
             if (lily)
             {
                 lily.transform.SetAsLastSibling();

@@ -76,7 +76,7 @@ public class Global : MonoBehaviour
             Cursor.visible = true;
             Cursor.SetCursor(default, Vector2.zero, CursorMode.Auto);
         }
-
+        /*
         if (Input.GetButtonDown("Fire1"))
         {
             RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Input.mousePosition);
@@ -110,10 +110,10 @@ public class Global : MonoBehaviour
                 }
             }
             }
-        
+        */
         fishTimer += Time.deltaTime;
         if (fishTimer > fishTimerMax) {
-          AddFish();
+          //AddFish();
           fishTimer = 0.0f;
         }
     }
