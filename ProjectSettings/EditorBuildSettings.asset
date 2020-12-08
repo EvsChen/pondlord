@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: 4d4d781e82a8c45cab15a16c25872608
+  - enabled: 1
+    path: Assets/Scenes/RoomSelection.unity
+    guid: 2f87f9fa0f8064d419680425377f84d8
   m_configObjects: {}

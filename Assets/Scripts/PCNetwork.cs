@@ -22,7 +22,8 @@ public class PCNetwork : Photon.MonoBehaviour
 
     public virtual void Start()
     {
-        PhotonNetwork.autoJoinLobby = true;    // we join randomly. always. no need to join a lobby to get the list of rooms.
+        PhotonNetwork.autoJoinLobby = true;
+        PhotonNetwork.autoCleanUpPlayerObjects = true;    // we join randomly. always. no need to join a lobby to get the list of rooms.
     }
 
     public virtual void Update()
@@ -49,14 +50,9 @@ public class PCNetwork : Photon.MonoBehaviour
     {
         Debug.Log("OnJoinedLobby(). This client is connected and does get a room-list, which gets stored as PhotonNetwork.GetRoomList(). This script now calls: PhotonNetwork.JoinRandomRoom();");
         GetRoomListAndShow();
-        // PhotonNetwork.JoinRandomRoom();
     }
 
-    void JoinRoom(RoomInfo r) {
-       PhotonNetwork.JoinRoom(r.Name);
-    }
-
-    void GetRoomListAndShow() {
+    public void GetRoomListAndShow() {
       currentRoomList = PhotonNetwork.GetRoomList();
       Debug.Log("The length of the rooms is " + currentRoomList.Length);
       GameObject[] existBtns = GameObject.FindGameObjectsWithTag("roomButtons");
@@ -65,22 +61,27 @@ public class PCNetwork : Photon.MonoBehaviour
       }
       GameObject canvas = GameObject.Find("Canvas");
       for (int i = 0; i < currentRoomList.Length; i++) {
+        RoomInfo ri = currentRoomList[i];
+        if (!ri.open || !ri.visible) {
+          Debug.Log("Room " + ri.Name + " is not open or visible");
+          continue;
+        }
         GameObject joinRoomBtn = Instantiate(mJoinRoomBtn);
         joinRoomBtn.transform.parent = canvas.transform;
         joinRoomBtn.tag = "roomButtons";
         RectTransform rt = joinRoomBtn.GetComponent<RectTransform>();
         rt.anchoredPosition = new Vector2(0, 300 - i * 100);
         Button btn = joinRoomBtn.GetComponent<Button>();
-        btn.onClick.AddListener(() => JoinRoom(currentRoomList[i]));
+        string roomName = currentRoomList[i].Name;
+        btn.onClick.AddListener(() => PhotonNetwork.JoinRoom(roomName));
         GameObject tc = joinRoomBtn.transform.GetChild(0).gameObject;
         Text btnText = tc.GetComponent<Text>();
-        btnText.text = currentRoomList[i].Name;
+        btnText.text = roomName;
       }
     }
 
     public void CreateNewRoom() {
-        int roomIdx = currentRoomList.Length;
-        bool suc = PhotonNetwork.CreateRoom("Room" + roomIdx.ToString(), new RoomOptions() { MaxPlayers = 2 }, null);
+        bool suc = PhotonNetwork.CreateRoom(null);
         if (!suc) {
           Debug.Log("Create room failed!");
         }
