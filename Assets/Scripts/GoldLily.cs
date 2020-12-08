@@ -4,13 +4,31 @@ using UnityEngine;
 
 public class GoldLily : BaseLily
 {
-
+    public Board mBoard;
     public GameObject bee;
     // Start is called before the first frame update
     new void Start()
     {   
       base.Start();
     }
+
+    void AddFrog()
+    {
+        bool added = false;
+        while (!added)
+        {
+            int rX = Random.Range(0, GameConstants.mBoardWidth);
+            int rY = Random.Range(0, GameConstants.mBoardHeight);
+            Cell cell = mBoard.mAllCells[rX, rY];
+            if (cell.HasFish())
+            {
+                continue;
+            }
+            added = true;
+            cell.AddFish();
+        }
+    }
+
 
     // Update is called once per frame
     new void Update()
