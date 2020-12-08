@@ -27,7 +27,9 @@ public class bee : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log("bee");
         GameObject.Find("GlobalObj").GetComponent<Global>().beeEvolve = true;
-        PhotonNetwork.Destroy(gameObject);
+        PhotonNetwork.Destroy(this.gameObject);
+        Destroy(this.gameObject);
     }
 }

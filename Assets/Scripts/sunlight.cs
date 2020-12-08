@@ -40,6 +40,7 @@ public class sunlight : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnPointerClick(PointerEventData eventData) {
+        Debug.Log("sunlight");
       GameConstants.sunlight++;
       if (mSunlightText) {
         mSunlightText.GetComponent<Text>().text = "SunLight: " + GameConstants.sunlight;

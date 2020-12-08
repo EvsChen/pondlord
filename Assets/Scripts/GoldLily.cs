@@ -48,7 +48,7 @@ public class GoldLily : BaseLily
                 b.mPlayerId = mPlayerId;
             }
 
-            float t2 = Random.Range(0, 100);
+            float t2 = Random.Range(0, 30);
             if (t2 < 1)
             {
                 AddFrog();
