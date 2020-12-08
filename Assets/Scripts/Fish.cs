@@ -5,6 +5,8 @@ using UnityEngine;
 public class Fish : MonoBehaviour
 {
     public int parentID = -1;
+
+    private bool init = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +16,11 @@ public class Fish : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SyncFish();
+        if (!init && parentID != -1)
+        {
+            SyncFish();
+            init = true;
+        }
     }
 
     public void SyncFish()

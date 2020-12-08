@@ -23,9 +23,12 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public int viewid = -1;
     public int parentID = -1;
+
+    private float starttime;
     // Start is called before the first frame update
     void Start()
     {
+      starttime = Time.time;
         mRectTransform = GetComponent<RectTransform>();
         mBgImg = GetComponent<Image>();
         GameObject c = transform.GetChild(0).gameObject;
@@ -46,12 +49,29 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.SetParent(PhotonView.Find(parentID).transform);
-        gameObject.transform.localPosition = new Vector3(x * 100, y * 100, 0);
-        gameObject.transform.localScale = new Vector3(1, 1, 1);
+      if (Time.time - starttime < 2f)
+      {
+        Debug.Log((Time.time - starttime));
+        SyncCell();
+      }
     }
 
 
+    public void SyncCell()
+    {
+      gameObject.transform.SetParent(PhotonView.Find(parentID).transform);
+      gameObject.transform.localPosition = new Vector3(x * 100, y * 100, 0);
+      gameObject.transform.localScale = new Vector3(1, 1, 1);
+      RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
+      rectTransform.anchoredPosition = new Vector2(x * 100, y * 100);
+      if ((x + y) % 2 == 0) {
+        mNormalColor = new Color(0.9f, 0.85f, 0.72f, 0.1f);
+      } else {
+        mNormalColor = new Color(1.0f, 1.0f, 1.0f, 0.1f);
+      }
+      mBgImg.color = mNormalColor;
+      mContentImg.color = mNormalColor;
+    }
     
     public void PlantNewLily(LilyType type)
     {

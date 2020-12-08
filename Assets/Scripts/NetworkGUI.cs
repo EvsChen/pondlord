@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,6 +31,16 @@ public class NetworkGUI : MonoBehaviour
     private const float TimePerTip = 3.0f;
     private float timeSinceLastTip;
     private const float FadeSpeedForTip = 0.05f;
+
+    public Canvas canvas;
+    private void Start()
+    {
+        if (PhotonNetwork.player.IsMasterClient)
+        {
+            PhotonNetwork.Instantiate(canvas.name, Vector3.zero, quaternion.identity, 0);
+            
+        }
+    }
 
     private void Update()
     {

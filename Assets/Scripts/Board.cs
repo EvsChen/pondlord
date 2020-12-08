@@ -42,19 +42,19 @@ public class Board : MonoBehaviour
                     //newCell = Instantiate(mCellPrefab, transform);
                     newCell = PhotonNetwork.Instantiate(mCellPrefab.name, transform.position,Quaternion.identity,  0);
                     newCell.GetComponent<Cell>().parentID = viewid;
-                    newCell.transform.parent = PhotonView.Find(viewid).gameObject.transform;
+                    //newCell.transform.parent = PhotonView.Find(viewid).gameObject.transform;
                     //newCell.transform.SetParent(gameObject.transform);
                     newCell.GetComponent<Cell>().x = x;
                     newCell.GetComponent<Cell>().y = y;
-                    RectTransform rectTransform = newCell.GetComponent<RectTransform>();
-                    rectTransform.anchoredPosition = new Vector2(x * 100, y * 100);
+                     RectTransform rectTransform = newCell.GetComponent<RectTransform>();
+                     rectTransform.anchoredPosition = new Vector2(x * 100, y * 100);
                     mAllCells[x, y] = newCell.GetComponent<Cell>();
                     mAllCells[x, y].mBoard = this;
-                    if ((x + y) % 2 == 0) {
-                        mAllCells[x, y].mNormalColor = new Color(0.9f, 0.85f, 0.72f, 0.1f);
-                    } else {
-                        mAllCells[x, y].mNormalColor = new Color(1.0f, 1.0f, 1.0f, 0.1f);
-                    }
+                     if ((x + y) % 2 == 0) {
+                         mAllCells[x, y].mNormalColor = new Color(0.9f, 0.85f, 0.72f, 0.1f);
+                     } else {
+                         mAllCells[x, y].mNormalColor = new Color(1.0f, 1.0f, 1.0f, 0.1f);
+                     }
                 }
             }
 

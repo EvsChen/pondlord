@@ -24,8 +24,12 @@ public class BaseLily : Photon.MonoBehaviour
       hp = 2; // Should not be reset here
     }
 
+    public PhotonView photonView;
+    public int viewid = -1;
     public void Start()
     {
+        photonView = new PhotonView();
+        viewid = photonView.viewID;
         ResetLily();
         mPlayerId = 0;
         mCollider = GetComponent<Collider2D>();
@@ -61,9 +65,7 @@ public class BaseLily : Photon.MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        gameObject.transform.SetParent(PhotonView.Find(parentID).transform);
-        gameObject.transform.localPosition = new Vector3(50, 50, 0);
-        gameObject.transform.localScale = new Vector3(1, 1, 1);
+        SyncLily();
         
         if(this.progress < 100f)
         {
@@ -97,10 +99,19 @@ public class BaseLily : Photon.MonoBehaviour
             if (t < 1)
             {
                 GameObject child = Instantiate(sunlight, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+
+                //GameObject child = PhotonNetwork.Instantiate(sunlight.name, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity, 0);
+                //child.GetComponent<sunlight>().parentID = viewid;
                 child.transform.parent = this.gameObject.transform;
                 child.transform.localPosition = new Vector3(0, 0, 0);
             }
         }
     }
-    
+
+    public void SyncLily()
+    {
+        gameObject.transform.SetParent(PhotonView.Find(parentID).transform);
+        gameObject.transform.localPosition = new Vector3(50, 50, 0);
+        gameObject.transform.localScale = new Vector3(1, 1, 1);
+    }
 }

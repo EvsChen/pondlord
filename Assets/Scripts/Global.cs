@@ -22,22 +22,22 @@ public class Global : MonoBehaviour
     public Canvas canvas;
     void Start()
     {
-        if (PhotonNetwork.player.IsMasterClient)
+        // if (PhotonNetwork.player.IsMasterClient)
+        // {
+        //     PhotonNetwork.Instantiate(canvas.name, Vector3.zero, quaternion.identity, 0);
+        //     
+        // }
+        GameObject boardObj = GameObject.Find("PF_board");
+        mBoard = boardObj.GetComponent<Board>();
+        //Set gamemode
+        GameObject GamemodeObj = GameObject.Find("Gamemode");
+        Text GamemodeText = GamemodeObj.GetComponent<Text>();
+        if (PlayerPrefs.GetInt("Gamemode") == 0)
         {
-            PhotonNetwork.Instantiate(canvas.name, Vector3.zero, quaternion.identity, 0);
-            GameObject boardObj = GameObject.Find("PF_board");
-            mBoard = boardObj.GetComponent<Board>();
-        
-            //Set gamemode
-            GameObject GamemodeObj = GameObject.Find("Gamemode");
-            Text GamemodeText = GamemodeObj.GetComponent<Text>();
-            if (PlayerPrefs.GetInt("Gamemode") == 0)
-            {
-                GamemodeText.text = "Cooperative Mode";
-            } else if (PlayerPrefs.GetInt("Gamemode") == 1)
-            {
-                GamemodeText.text = "Competitive Mode";
-            }
+            GamemodeText.text = "Cooperative Mode";
+        } else if (PlayerPrefs.GetInt("Gamemode") == 1)
+        {
+            GamemodeText.text = "Competitive Mode";
         }
     }
 
