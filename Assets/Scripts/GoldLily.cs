@@ -28,6 +28,7 @@ public class GoldLily : BaseLily
         if (!spawnCell.HasFrog() && spawnCell.GetComponentInChildren<BaseLily>() != null && spawnCell.GetComponentInChildren<BaseLily>().generateSun)
         {
             spawnCell.GetComponentInChildren<BaseLily>().state = 3;
+            spawnCell.GetComponentInChildren<BaseLily>().generateSun = false;
             spawnCell.AddFrog();
         }
     }

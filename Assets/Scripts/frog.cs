@@ -31,6 +31,7 @@ public class frog : MonoBehaviour
         if(timer > 3.0f)
         {
             this.gameObject.transform.parent.GetComponentInChildren<BaseLily>().state = 2;
+            this.gameObject.transform.parent.GetComponentInChildren<BaseLily>().generateSun = true;
             Destroy(this.gameObject);
         }
 
