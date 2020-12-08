@@ -17,7 +17,11 @@ public class sunlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            //SyncSunlight();
+        if (!init && parentID != -1)
+        {
+            SyncSunlight();
+            init = true;
+        }
     }
     
     public void SyncSunlight()
@@ -27,15 +31,15 @@ public class sunlight : MonoBehaviour
         gameObject.transform.localScale = new Vector3(1, 1, 1);
     }
     
-    // void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    // {
-    //     if (stream.isWriting)
-    //     {
-    //         stream.SendNext(parentID);
-    //     }
-    //     else
-    //     {
-    //         parentID = (int)stream.ReceiveNext();
-    //     }
-    // }
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            stream.SendNext(parentID);
+        }
+        else
+        {
+            parentID = (int)stream.ReceiveNext();
+        }
+    }
 }

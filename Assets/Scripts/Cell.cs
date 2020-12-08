@@ -49,11 +49,12 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     // Update is called once per frame
     void Update()
     {
-      if (Time.time - starttime < 2f)
-      {
-        //Debug.Log((Time.time - starttime));
-        SyncCell();
-      }
+      SyncCell();
+      //if (Time.time - starttime < 2f)
+      // {
+      //   //Debug.Log((Time.time - starttime));
+      //   SyncCell();
+      // }
     }
 
 

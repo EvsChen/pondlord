@@ -24,11 +24,12 @@ public class BaseLily : Photon.MonoBehaviour
       hp = 2; // Should not be reset here
     }
 
-    public PhotonView photonView;
+    private PhotonView photonView;
     public int viewid = -1;
     public void Start()
     {
-        photonView = new PhotonView();
+        photonView = GetComponent<PhotonView>();
+        //Debug.Log(photonView.viewID);
         viewid = photonView.viewID;
         ResetLily();
         mPlayerId = 0;
@@ -98,10 +99,10 @@ public class BaseLily : Photon.MonoBehaviour
             float t = Random.Range(0, 1000);
             if (t < 1)
             {
-                GameObject child = Instantiate(sunlight, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+                //GameObject child = Instantiate(sunlight, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 
-                //GameObject child = PhotonNetwork.Instantiate(sunlight.name, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity, 0);
-                //child.GetComponent<sunlight>().parentID = viewid;
+                GameObject child = PhotonNetwork.Instantiate(sunlight.name, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity, 0);
+                child.GetComponent<sunlight>().parentID = viewid;
                 child.transform.parent = this.gameObject.transform;
                 child.transform.localPosition = new Vector3(0, 0, 0);
             }
