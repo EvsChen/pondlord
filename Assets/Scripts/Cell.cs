@@ -10,7 +10,9 @@ public class Cell : Photon.PunBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     public Image mBgImg, mContentImg;
     public RectTransform mRectTransform;
-    public Color mNormalColor;
+    public Color mNormalColor,
+                 mMasterColor = new Color(0.5f, 0.0f, 0.0f, 0.5f),
+                 mClientColor = new Color(0.0f, 0.0f, 0.5f, 0.5f);
     public Board mBoard = null;
     public Global mGlobal;
     public int x;
@@ -20,7 +22,6 @@ public class Cell : Photon.PunBehaviour, IPointerEnterHandler, IPointerExitHandl
     public GameObject mFishPrefab;
     public GameObject mFrogPrefab;
 
-    private GameObject lilyChild;
     private PhotonView photonView;
 
     public int viewid = -1;
@@ -28,6 +29,16 @@ public class Cell : Photon.PunBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     private float starttime;
     bool synced = false;
+
+    public bool HasLily() {
+      for (int i = 0; i < transform.childCount; i++) {
+        GameObject c = transform.GetChild(i).gameObject;
+        if (c.CompareTag(GameConstants.Tags.lily)) {
+          return true;
+        }
+      }
+      return false;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -150,14 +161,17 @@ public class Cell : Photon.PunBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Color newColor = mNormalColor;
-        newColor.a = 0.8f;
+        Color newColor = mBgImg.color;
+        newColor.a -= 0.2f;
         mBgImg.color = newColor;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-      mBgImg.color = mNormalColor;
+        
+        Color newColor = mBgImg.color;
+        newColor.a += 0.2f;
+        mBgImg.color = newColor;
     }
 
     public bool HasFish() {
@@ -169,6 +183,7 @@ public class Cell : Photon.PunBehaviour, IPointerEnterHandler, IPointerExitHandl
       }
       return false;
     }
+
     public bool HasFrog()
     {
         for (int i = 0; i < transform.childCount; i++)

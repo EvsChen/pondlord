@@ -23,6 +23,9 @@
             if (functional)
             {
                 Cell[,] mAllCells = mBoard.mAllCells;
+                if (!this.transform.parent) {
+                  return;
+                }
                 Cell cell = this.transform.parent.GetComponent<Cell>();
                 int newX = cell.x;
                 int newY = cell.y;
