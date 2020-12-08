@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class BaseLily : Photon.MonoBehaviour
+public class BaseLily : Photon.PunBehaviour
 {
     GameObject mPbComponent;
     ProgressBar Pb;
@@ -19,7 +19,7 @@ public class BaseLily : Photon.MonoBehaviour
     protected bool functional = false;
     public int mPlayerId; // Used to distinguish player
     public int parentID = -1;
-    bool init = false;
+    bool synced = false;
 
     public void ResetLily() {
       progress = 0;
@@ -69,12 +69,9 @@ public class BaseLily : Photon.MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (!init && parentID != -1)
-        {
-            SyncLily();
-            init = true;
+        if (!synced) {
+          SyncLily();
         }
-        
         
         if(this.progress < 100f)
         {
@@ -132,14 +129,34 @@ public class BaseLily : Photon.MonoBehaviour
 
     }
 
+    void OnPhotonInstantiate(PhotonMessageInfo info) {
+    }
 
-void SyncLily()
+    void SyncLily()
     {
         PhotonView parent = PhotonView.Find(parentID);
+        if (!parent) {
+          return;
+        }
+        synced = true;
         gameObject.transform.SetParent(parent.transform);
         gameObject.transform.localPosition = new Vector3(50, 50, 0);
         gameObject.transform.localScale = new Vector3(1, 1, 1);
+        Cell cell = parent.GetComponent<Cell>();
+        PhotonPlayer owner = photonView.owner;
+        cell.mBgImg.color = owner.isMasterClient
+          ? cell.mMasterColor
+          : cell.mClientColor;
     }
 
 
+    private void OnDestroy() {
+       GameObject parent = transform.parent.gameObject;
+       if (!parent) {
+         return;
+       }
+       Cell cell = parent.GetComponent<Cell>();
+       PhotonPlayer owner = photonView.owner;
+       cell.mBgImg.color = cell.mNormalColor;
+    }
 }

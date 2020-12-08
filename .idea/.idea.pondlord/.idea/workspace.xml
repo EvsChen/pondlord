@@ -20,17 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cdc69e2-2c7b-4b4f-82d6-dcdf54318859" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/protector.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/protector.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BaseLily.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BaseLily.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCNetwork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCNetwork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/blueLily.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/blueLily.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/protector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/protector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/whiteLily.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/whiteLily.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,10 +65,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/blueLily.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PCNetwork.cs" />
         <option value="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/ConnectAndJoinRandom.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BaseLily.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/whiteLily.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/protector.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BaseLily.cs" />
       </list>
     </option>
   </component>
