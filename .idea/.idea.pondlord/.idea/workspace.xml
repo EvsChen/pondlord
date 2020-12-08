@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0cdc69e2-2c7b-4b4f-82d6-dcdf54318859" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BaseLily.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BaseLily.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/sunlight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/sunlight.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

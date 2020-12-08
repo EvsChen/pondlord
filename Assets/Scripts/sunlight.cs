@@ -42,7 +42,7 @@ public class sunlight : MonoBehaviour, IPointerClickHandler
       {
           GameConstants.enablePlant = true;
       }
-      Destroy(gameObject);
+      PhotonNetwork.Destroy(gameObject);
     }
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
