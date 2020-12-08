@@ -289,6 +289,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="BaseLily.cs" t="Include" />
+          <e p="bee.cs" t="Include" />
           <e p="blueLily.cs" t="Include" />
           <e p="Board.cs" t="Include" />
           <e p="bullet.cs" t="Include" />
