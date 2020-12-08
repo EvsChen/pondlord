@@ -112,7 +112,7 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
               break;
         }
 
-      child.GetComponent<BaseLily>().parentID = viewid;
+        child.GetComponent<BaseLily>().parentID = viewid;
         child.transform.SetParent(gameObject.transform);
         child.transform.localPosition = new Vector3(50, 50, 0);
         child.transform.localScale = new Vector3(1, 1, 1);

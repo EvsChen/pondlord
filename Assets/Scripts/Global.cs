@@ -85,18 +85,6 @@ public class Global : MonoBehaviour
                 Debug.Log("select");
                 GameObject selectedObject = hit.collider.gameObject;
                 Debug.Log(selectedObject);
-                if (selectedObject.name.Contains("Sunlight"))
-                {
-                    GameConstants.sunlight++;
-                    GameObject.Find("sunlightText").GetComponent<Text>().text = "SunLight: " + GameConstants.sunlight;
-                    Destroy(selectedObject);
-
-                    if (GameConstants.sunlight > 0)
-                    {
-                        GameConstants.enablePlant = true;
-                    }
-                }
-
                 if (selectedObject.name.Contains("bee"))
                 {
                     Cursor.visible = false;
