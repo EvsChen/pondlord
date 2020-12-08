@@ -36,8 +36,10 @@ public class PlayerInRoomGUI : MonoBehaviour
 
     private void Update()
     {
-        if (!playerSign.activeSelf)
-        {
+        if (PhotonNetwork.room == null) {
+          return;
+        }
+        if (!playerSign.activeSelf) { 
             if (PhotonNetwork.room.PlayerCount >= 1)
             {
                 playerSign.SetActive(true);
