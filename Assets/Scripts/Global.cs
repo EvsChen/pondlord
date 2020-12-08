@@ -16,10 +16,10 @@ public class Global : MonoBehaviour
 {
     // Start is called before the first frame update
     public LilyType mSelectedLilyType = LilyType.None;
-    public Texture beeMouse;
+    public Texture2D beeMouse;
     public Board mBoard;
     public float fishTimer = 0.0f, fishTimerMax = 10.0f; // Refresh fish every fishTimerMax secs
-
+    public bool beeEvolve = false;
     public Canvas canvas;
     void Start()
     {
@@ -28,6 +28,7 @@ public class Global : MonoBehaviour
         //     PhotonNetwork.Instantiate(canvas.name, Vector3.zero, quaternion.identity, 0);
         //     
         // }
+       
         GameObject boardObj = GameObject.Find("PF_board");
         mBoard = boardObj.GetComponent<Board>();
         //Set gamemode
@@ -40,7 +41,11 @@ public class Global : MonoBehaviour
         {
             GamemodeText.text = "Competitive Mode";
         }
+
+        
     }
+
+
 
     void AddFish() {
       bool added = false;
@@ -59,6 +64,17 @@ public class Global : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (beeEvolve)
+        {
+            //Debug.Log("bee true");
+            Cursor.SetCursor(beeMouse, Vector2.zero, CursorMode.Auto);
+        }
+        else
+        {
+           // Debug.Log("bee false");
+            Cursor.SetCursor(default, Vector2.zero, CursorMode.Auto);
+        }
+
         if (Input.GetButtonDown("Fire1"))
         {
             RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Input.mousePosition);
@@ -84,8 +100,16 @@ public class Global : MonoBehaviour
                 if (selectedObject.name.Contains("bee"))
                 {
                     Cursor.visible = false;
-                    Vector3 vector3 = Input.mousePosition;
-                    GUI.DrawTexture(new Rect(vector3.x - beeMouse.width / 2, (Screen.height - vector3.y) - beeMouse.height / 2, beeMouse.width, beeMouse.height), beeMouse);
+                    Cursor.SetCursor(beeMouse, Vector2.zero, CursorMode.Auto); 
+                    beeEvolve = true;
+                }
+
+
+                if (beeEvolve && selectedObject.name.Contains("Seed"))
+                {
+                    selectedObject.GetComponent<BaseLily>().progress = 100;
+                    Cursor.SetCursor(default, Vector2.zero, CursorMode.Auto);
+                    beeEvolve = false;
                 }
             }
             }

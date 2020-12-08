@@ -7,7 +7,7 @@ public class BaseLily : Photon.MonoBehaviour
 {
     GameObject mPbComponent;
     ProgressBar Pb;
-    protected int progress = 0, hp = 2;
+    public int progress = 0, hp = 2;
     public int state = 1; //seed = 1; leaf = 2; flower = 3;
     public Sprite flower, leaf;
     public Image mImage;
@@ -50,7 +50,7 @@ public class BaseLily : Photon.MonoBehaviour
       {
         bullet b = collision.gameObject.GetComponent<bullet>();
         if (b.mPlayerId == this.mPlayerId) {
-          Debug.Log("Collide with same mPlayerId" + this.mPlayerId);
+          //Debug.Log("Collide with same mPlayerId" + this.mPlayerId);
           Physics2D.IgnoreCollision(mCollider, collision.collider);
           return;
         }
