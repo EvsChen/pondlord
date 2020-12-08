@@ -39,7 +39,7 @@ public class PlayerInRoomGUI : MonoBehaviour
         if (PhotonNetwork.room == null) {
           return;
         }
-        if (!playerSign.activeSelf) { 
+        if (playerSign && !playerSign.activeSelf) { 
             if (PhotonNetwork.room.PlayerCount >= 1)
             {
                 playerSign.SetActive(true);
@@ -47,7 +47,7 @@ public class PlayerInRoomGUI : MonoBehaviour
             } 
         }
         
-        if (!otherplayerSign.activeSelf)
+        if (otherplayerSign && !otherplayerSign.activeSelf)
         {
             if (PhotonNetwork.room.PlayerCount == 2)
             {

@@ -12,6 +12,7 @@ TagManager:
   - protector
   - fish
   - frog
+  - roomButtons
   layers:
   - Default
   - TransparentFX

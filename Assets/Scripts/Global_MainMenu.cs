@@ -19,22 +19,16 @@ public class Global_MainMenu : MonoBehaviour
 
     public void CompetitiveMode()
     {
-        if (PhotonNetwork.room.PlayerCount > 0)
-        {
-            PhotonNetwork.LoadLevel("SampleScene");
-            //SceneManager.LoadScene("SampleScene");
-            PlayerPrefs.SetInt("Gamemode", 1);
-        }
+      PhotonNetwork.LoadLevel("RoomSelection");
+      //SceneManager.LoadScene("SampleScene");
+      PlayerPrefs.SetInt("Gamemode", 1);
     }
     
     public void CooperativeMode()
     {
-        if (PhotonNetwork.room.PlayerCount > 0)
-        {
-            PhotonNetwork.LoadLevel("SampleScene");
-            //SceneManager.LoadScene("SampleScene");
-            PlayerPrefs.SetInt("Gamemode", 0);
-        }
+        PhotonNetwork.LoadLevel("RoomSelection");
+        //SceneManager.LoadScene("SampleScene");
+        PlayerPrefs.SetInt("Gamemode", 0);
     }
 
     public void RestartGame()
