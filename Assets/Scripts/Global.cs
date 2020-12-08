@@ -67,14 +67,14 @@ public class Global : MonoBehaviour
         if (beeEvolve)
         {
             //Debug.Log("bee true");
-            Cursor.visible = false;
-            Cursor.SetCursor(beeMouse, Vector2.zero, CursorMode.Auto);
+            //Cursor.visible = false;
+            //Cursor.SetCursor(beeMouse, Vector2.zero, CursorMode.Auto);
         }
         else
         {
             // Debug.Log("bee false");
-            Cursor.visible = true;
-            Cursor.SetCursor(default, Vector2.zero, CursorMode.Auto);
+            //Cursor.visible = true;
+            //Cursor.SetCursor(default, Vector2.zero, CursorMode.Auto);
         }
         /*
         if (Input.GetButtonDown("Fire1"))

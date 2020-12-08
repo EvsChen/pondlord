@@ -5,7 +5,7 @@ using UnityEngine;
 public static class GameConstants {
   public static int mBoardWidth = 8;
   public static int mBoardHeight = 8;
-  public static int sunlight = 5;
+  public static int sunlight = 10;
   public static bool enablePlant = true;
 
   public readonly struct Tags {

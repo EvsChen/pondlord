@@ -120,10 +120,30 @@ public class Cell : Photon.PunBehaviour, IPointerEnterHandler, IPointerExitHandl
         GameConstants.enablePlant = false;
       }
       if (mGlobal.mSelectedLilyType != LilyType.None && GameConstants.enablePlant) {
-        GameConstants.sunlight--;
-        GameObject.Find("sunlightText").GetComponent<Text>().text = "SunLight: " + GameConstants.sunlight;
+           if(mGlobal.mSelectedLilyType == LilyType.Gold && (GameConstants.sunlight-8) >= 0)
+            {
+                GameConstants.sunlight -= 8;
+                PlantNewLily(mGlobal.mSelectedLilyType);
+            }
+            else if (mGlobal.mSelectedLilyType == LilyType.Blue && (GameConstants.sunlight - 3) >= 0)
+           {
+                GameConstants.sunlight -= 3;
+                PlantNewLily(mGlobal.mSelectedLilyType);
+            }
+            else if (mGlobal.mSelectedLilyType == LilyType.Pink && (GameConstants.sunlight - 5) >= 0)
+            {
+                GameConstants.sunlight -= 5;
+                PlantNewLily(mGlobal.mSelectedLilyType);
+            }
+            else if (mGlobal.mSelectedLilyType == LilyType.White && (GameConstants.sunlight - 2) >= 0)
+            {
+                GameConstants.sunlight -= 2;
+                PlantNewLily(mGlobal.mSelectedLilyType);
+            }
+
+            GameObject.Find("sunlightText").GetComponent<Text>().text = "SunLight: " + GameConstants.sunlight;
         //photonView.RPC("PlantNewLily", PhotonTargets.All, mGlobal.mSelectedLilyType);
-        PlantNewLily(mGlobal.mSelectedLilyType);
+        
         mGlobal.mSelectedLilyType = LilyType.None;
       }
     }
