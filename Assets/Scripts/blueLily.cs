@@ -21,10 +21,13 @@ public class blueLily : BaseLily
             float t = Random.Range(0, 500);
             if (t < 1)
             {
-                GameObject child = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-                child.transform.parent = gameObject.transform;
+                GameObject child = PhotonNetwork.Instantiate(bullet.name,
+                    new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity, 0);
+                //GameObject child = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+                //child.transform.parent = gameObject.transform;
                 bullet b = child.GetComponent<bullet>();
                 b.mPlayerId = mPlayerId;
+                b.parentID = viewid;
             }
         }
     }

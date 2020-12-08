@@ -38,7 +38,7 @@ public class PCNetwork : Photon.PunBehaviour
 
     private static string GenerateRoomName()
     {
-        return "Pondlord";
+        return "Pondlord1";
     }
 
 }

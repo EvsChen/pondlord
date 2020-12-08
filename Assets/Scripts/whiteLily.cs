@@ -17,11 +17,14 @@ public class whiteLily : BaseLily
     new void Update()
     {
       base.Update();  
-      if (functional)
+      if (functional && photonView.isMine)
       {
-          GameObject c = Instantiate(mProtector, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+          GameObject c = PhotonNetwork.Instantiate(mProtector.name, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity, 0);
+
+          //GameObject c = Instantiate(mProtector, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
           protector p = c.GetComponent<protector>();
           p.mPlayerId = mPlayerId;
+          p.parentID = viewid;
           c.transform.parent = transform;
           functional = false;
       }

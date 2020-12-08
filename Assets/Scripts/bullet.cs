@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bullet : MonoBehaviour
+public class bullet : Photon.MonoBehaviour
 {
     public float speed = 3000;
     public Vector3 direction;
     public int mPlayerId;
     Collider2D mCollider;
+    
+    public int parentID = -1;
+
+    public bool init = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,10 +38,21 @@ public class bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!init && parentID != -1)
+        {
+            SyncBullet();
+            init = true;
+        }
         Vector3 movement = direction * speed * Time.deltaTime;
         transform.localPosition +=  movement;
     }
 
+    private void SyncBullet()
+    {
+        gameObject.transform.SetParent(PhotonView.Find(parentID).transform);
+        gameObject.transform.localPosition = new Vector3(0, 0, 0);
+        gameObject.transform.localRotation = Quaternion.identity;
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
       if (collision.gameObject.CompareTag(GameConstants.Tags.cell)) {
@@ -57,6 +72,18 @@ public class bullet : MonoBehaviour
           return;
         } 
       }
-      Destroy(gameObject);
+      PhotonNetwork.Destroy(gameObject);
+    }
+    
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            stream.SendNext(parentID);
+        }
+        else
+        {
+            parentID = (int)stream.ReceiveNext();
+        }
     }
 }

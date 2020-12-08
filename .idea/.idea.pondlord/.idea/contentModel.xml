@@ -296,6 +296,7 @@
           <e p="Cell.cs" t="Include" />
           <e p="CountDownTimer.cs" t="Include" />
           <e p="Fish.cs" t="Include" />
+          <e p="frog.cs" t="Include" />
           <e p="GameConstants.cs" t="Include" />
           <e p="Global.cs" t="Include" />
           <e p="Global_MainMenu.cs" t="Include" />
