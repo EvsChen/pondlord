@@ -7614,6 +7614,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1448538476}
+  - component: {fileID: 1448538477}
   m_Layer: 0
   m_Name: PlayerGUI
   m_TagString: Untagged
@@ -7643,6 +7644,24 @@ RectTransform:
   m_AnchoredPosition: {x: 129.90997, y: 477.97}
   m_SizeDelta: {x: 207.34558, y: 55.01996}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1448538477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448538475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b3ff41fc200478bac9ed76da3542a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerText: {fileID: 1017557887}
+  otherPlayerText: {fileID: 1953533930}
+  playerImg: {fileID: 1561048754}
+  otherPlayerImg: {fileID: 2116964740}
+  masterColor: {r: 1, g: 0, b: 0, a: 1}
+  clientColor: {r: 0, g: 0.80784315, b: 1, a: 1}
 --- !u!1 &1561048752
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ public class blueLily : BaseLily
         base.Update();
         if (functional){
             float t = Random.Range(0, 500);
-            if (t < 1)
+            if (t < 1 && photonView.isMine)
             {
                 GameObject child = PhotonNetwork.Instantiate(bullet.name,
                     new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity, 0);
