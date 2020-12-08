@@ -18,6 +18,7 @@ public class Cell : Photon.PunBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public GameObject blueLily, whiteLily, goldLily, pinkLily;
     public GameObject mFishPrefab;
+    public GameObject mFrogPrefab;
 
     private GameObject lilyChild;
     private PhotonView photonView;
@@ -148,26 +149,55 @@ public class Cell : Photon.PunBehaviour, IPointerEnterHandler, IPointerExitHandl
       }
       return false;
     }
-
-    public void ReorderComponent() {
-      GameObject contentImg = null, lily = null, fish = null;
-      for (int i = 0; i < transform.childCount; i++) {
-        GameObject c = transform.GetChild(i).gameObject;
-        if (c.name == "contentImg") {
-          contentImg = c;
-        } else if (c.CompareTag(GameConstants.Tags.lily)) {
-          lily = c;
-        } else if (c.CompareTag(GameConstants.Tags.fish)) {
-          fish = c;
+    public bool HasFrog()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            GameObject c = transform.GetChild(i).gameObject;
+            if (c.CompareTag(GameConstants.Tags.frog))
+            {
+                return true;
+            }
         }
-      }
-      contentImg.transform.SetAsLastSibling();
-      if (lily) {
-        lily.transform.SetAsLastSibling();
-      }
-      if (fish) {
-        fish.transform.SetAsLastSibling();
-      }
+        return false;
+    }
+
+    public void ReorderComponent()
+    {
+        GameObject contentImg = null, lily = null, fish = null, frog = null;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            GameObject c = transform.GetChild(i).gameObject;
+            if (c.name == "contentImg")
+            {
+                contentImg = c;
+            }
+            else if (c.CompareTag(GameConstants.Tags.lily))
+            {
+                lily = c;
+            }
+            else if (c.CompareTag(GameConstants.Tags.fish))
+            {
+                fish = c;
+            }
+            else if (c.CompareTag(GameConstants.Tags.frog))
+            {
+                frog = c;
+            }
+            contentImg.transform.SetAsLastSibling();
+            if (lily)
+            {
+                lily.transform.SetAsLastSibling();
+            }
+            if (fish)
+            {
+                fish.transform.SetAsLastSibling();
+            }
+            if (frog)
+            {
+                fish.transform.SetAsLastSibling();
+            }
+        }
     }
 
     public void AddFish() {
@@ -175,7 +205,12 @@ public class Cell : Photon.PunBehaviour, IPointerEnterHandler, IPointerExitHandl
       child.GetComponent<Fish>().parentID = viewid;
       ReorderComponent();
     }
-    
+    public void AddFrog()
+    {
+        GameObject child = PhotonNetwork.Instantiate(mFrogPrefab.name, Vector3.zero, quaternion.identity, 0);
+        child.GetComponent<frog>().parentID = viewid;
+        ReorderComponent();
+    }
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
       if (stream.isWriting)

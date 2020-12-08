@@ -6,26 +6,29 @@ public class GoldLily : BaseLily
 {
     public Board mBoard;
     public GameObject bee;
+    public GameObject frog;
     // Start is called before the first frame update
     new void Start()
     {   
       base.Start();
+
+        GameObject boardObj = GameObject.Find("PF_board");
+        mBoard = boardObj.GetComponent<Board>();
     }
 
     void AddFrog()
     {
-        bool added = false;
-        while (!added)
+        Cell cell = this.transform.parent.GetComponent<Cell>();
+        int newX = cell.x;
+        int newY = cell.y;
+        int rX = Random.Range(((newX - 2)< 0 ? 0 : newX - 2), ((newX + 3) > GameConstants.mBoardWidth ? GameConstants.mBoardWidth : (newX + 3)));
+        int rY = Random.Range(((newY - 2) < 0 ? 0 : newY - 2), ((newY + 3) > GameConstants.mBoardHeight ? GameConstants.mBoardHeight : (newY + 3)));
+        Cell spawnCell = mBoard.mAllCells[rX, rY];
+       // Debug.Log(spawnCell.GetComponentInChildren<BaseLily>());
+        if (!spawnCell.HasFrog() && spawnCell.GetComponentInChildren<BaseLily>() != null && spawnCell.GetComponentInChildren<BaseLily>().generateSun)
         {
-            int rX = Random.Range(0, GameConstants.mBoardWidth);
-            int rY = Random.Range(0, GameConstants.mBoardHeight);
-            Cell cell = mBoard.mAllCells[rX, rY];
-            if (cell.HasFish())
-            {
-                continue;
-            }
-            added = true;
-            cell.AddFish();
+            spawnCell.GetComponentInChildren<BaseLily>().state = 3;
+            spawnCell.AddFrog();
         }
     }
 
@@ -36,13 +39,19 @@ public class GoldLily : BaseLily
         base.Update();
         if (functional)
         {
-            float t = Random.Range(0, 500);
+            float t = Random.Range(0, 300);
             if (t < 1)
             {
                 GameObject child = Instantiate(bee, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
                 child.transform.parent = gameObject.transform;
                 bee b = child.GetComponent<bee>();
                 b.mPlayerId = mPlayerId;
+            }
+
+            float t2 = Random.Range(0, 100);
+            if (t2 < 1)
+            {
+                AddFrog();
             }
         }
     }

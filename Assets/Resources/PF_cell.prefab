@@ -182,6 +182,8 @@ MonoBehaviour:
     type: 3}
   mFishPrefab: {fileID: 6743274071933102970, guid: 495e4cf959c6740d29e77a14d44f9628,
     type: 3}
+  mFrogPrefab: {fileID: 3827806553914315633, guid: 3c70f176d5bb2854b97eb1ad127dc918,
+    type: 3}
   viewid: -1
   parentID: -1
 --- !u!61 &-8554120371845991550

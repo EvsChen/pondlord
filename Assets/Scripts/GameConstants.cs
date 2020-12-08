@@ -13,6 +13,7 @@ public static class GameConstants {
                        protector = "protector",
                        bullet = "bullet",
                        cell = "cell",
-                       fish = "fish";
+                       fish = "fish",
+        frog = "frog";
   }
 }

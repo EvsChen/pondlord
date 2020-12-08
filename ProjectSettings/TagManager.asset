@@ -11,6 +11,7 @@ TagManager:
   - lily
   - protector
   - fish
+  - frog
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,7 @@ public class sunlight : MonoBehaviour, IPointerClickHandler
     public int parentID = -1;
     private bool init = false;
     GameObject mSunlightText;
+    private float timer;
     
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,11 @@ public class sunlight : MonoBehaviour, IPointerClickHandler
         {
             SyncSunlight();
             init = true;
+        }
+
+        timer += Time.deltaTime;
+        if (timer > 5.0f) { 
+            Destroy(this.gameObject);
         }
     }
     

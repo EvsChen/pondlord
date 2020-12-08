@@ -16,11 +16,11 @@ public class Global : MonoBehaviour
 {
     // Start is called before the first frame update
     public LilyType mSelectedLilyType = LilyType.None;
-    public Texture2D beeMouse;
     public Board mBoard;
     public float fishTimer = 0.0f, fishTimerMax = 10.0f; // Refresh fish every fishTimerMax secs
     public bool beeEvolve = false;
     public Canvas canvas;
+    public Texture2D beeMouse;
     void Start()
     {
         // if (PhotonNetwork.player.IsMasterClient)
@@ -67,11 +67,13 @@ public class Global : MonoBehaviour
         if (beeEvolve)
         {
             //Debug.Log("bee true");
+            Cursor.visible = false;
             Cursor.SetCursor(beeMouse, Vector2.zero, CursorMode.Auto);
         }
         else
         {
-           // Debug.Log("bee false");
+            // Debug.Log("bee false");
+            Cursor.visible = true;
             Cursor.SetCursor(default, Vector2.zero, CursorMode.Auto);
         }
 
@@ -85,12 +87,19 @@ public class Global : MonoBehaviour
                 Debug.Log("select");
                 GameObject selectedObject = hit.collider.gameObject;
                 Debug.Log(selectedObject);
-                if (selectedObject.name.Contains("bee"))
+                if (selectedObject.name.Contains("Sunlight"))
                 {
-                    Cursor.visible = false;
-                    Cursor.SetCursor(beeMouse, Vector2.zero, CursorMode.Auto); 
-                    beeEvolve = true;
+                    GameConstants.sunlight++;
+                    GameObject.Find("sunlightText").GetComponent<Text>().text = "SunLight: " + GameConstants.sunlight;
+                    Destroy(selectedObject);
+
+                    if (GameConstants.sunlight > 0)
+                    {
+                        GameConstants.enablePlant = true;
+                    }
                 }
+
+         
 
 
                 if (beeEvolve && selectedObject.name.Contains("Seed"))
@@ -104,7 +113,7 @@ public class Global : MonoBehaviour
         
         fishTimer += Time.deltaTime;
         if (fishTimer > fishTimerMax) {
-          //AddFish();
+          AddFish();
           fishTimer = 0.0f;
         }
     }

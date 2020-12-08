@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class bee : MonoBehaviour
+public class bee : MonoBehaviour, IPointerClickHandler
 {
 
     public int mPlayerId;
@@ -21,5 +23,11 @@ public class bee : MonoBehaviour
         Vector3 movement = direction *100* Time.deltaTime;
         transform.position += movement;
 
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        GameObject.Find("GlobalObj").GetComponent<Global>().beeEvolve = true;
+        PhotonNetwork.Destroy(gameObject);
     }
 }

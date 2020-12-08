@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ff19fcd8f098e45acf5e93d007e62b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beeMouse: {fileID: 2800000, guid: fd906b5c01519ed47a353caa81d51b74, type: 3}
   mPlayerId: 0
   direction: {x: 0, y: 0, z: 0}
 --- !u!61 &5401877481032824122

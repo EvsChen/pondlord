@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class BaseLily : Photon.MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class BaseLily : Photon.MonoBehaviour
     public GameObject sunlight;
     Collider2D mCollider;
     float updateTimer = 0.0f;
-    protected bool generateSun = false;
+    public bool generateSun = false;
     protected bool functional = false;
     public int mPlayerId; // Used to distinguish player
     public int parentID = -1;
@@ -111,9 +112,23 @@ public class BaseLily : Photon.MonoBehaviour
                 child.transform.localPosition = new Vector3(0, 0, 0);
             }
         }
+      
+    }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        bool beeEvolve = GameObject.Find("Global").GetComponent<Global>().beeEvolve;
+        if (beeEvolve)
+        {
+            this.progress = 100;
+            Cursor.SetCursor(default, Vector2.zero, CursorMode.Auto);
+            beeEvolve = false;
+        }
+
+
     }
 
-    void SyncLily()
+
+void SyncLily()
     {
         PhotonView parent = PhotonView.Find(parentID);
         if (!parent) {
@@ -124,4 +139,6 @@ public class BaseLily : Photon.MonoBehaviour
         gameObject.transform.localPosition = new Vector3(50, 50, 0);
         gameObject.transform.localScale = new Vector3(1, 1, 1);
     }
+
+
 }
