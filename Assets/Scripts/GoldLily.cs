@@ -39,7 +39,7 @@ public class GoldLily : BaseLily
         base.Update();
         if (functional)
         {
-            float t = Random.Range(0, 300);
+            float t = Random.Range(0, 3000);
             if (t < 1)
             {
                 GameObject child = Instantiate(bee, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
