@@ -40,14 +40,14 @@ public class Board : MonoBehaviour
                 for (int x = 0; x < mWidth; x++)
                 {
                     //newCell = Instantiate(mCellPrefab, transform);
-                    newCell = PhotonNetwork.Instantiate(mCellPrefab.name, transform.position,Quaternion.identity,  0);
+                    newCell = PhotonNetwork.Instantiate(mCellPrefab.name, transform.position,Quaternion.identity, 0);
                     newCell.GetComponent<Cell>().parentID = viewid;
                     newCell.GetComponent<Cell>().x = x;
                     newCell.GetComponent<Cell>().y = y;
                      RectTransform rectTransform = newCell.GetComponent<RectTransform>();
                      rectTransform.anchoredPosition = new Vector2(x * 100, y * 100);
-                      mAllCells[x, y] = newCell.GetComponent<Cell>();
-                      mAllCells[x, y].mBoard = this;
+                     mAllCells[x, y] = newCell.GetComponent<Cell>();
+                     mAllCells[x, y].mBoard = this;
                      if ((x + y) % 2 == 0) {
                          mAllCells[x, y].mNormalColor = new Color(0.9f, 0.85f, 0.72f, 0.1f);
                      } else {

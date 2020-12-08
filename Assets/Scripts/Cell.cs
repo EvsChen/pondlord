@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+
+public class Cell : Photon.PunBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public Image mBgImg, mContentImg;
     public RectTransform mRectTransform;
@@ -25,42 +26,45 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public int parentID = -1;
 
     private float starttime;
+    bool synced = false;
+
     // Start is called before the first frame update
     void Start()
     {
       starttime = Time.time;
-        mRectTransform = GetComponent<RectTransform>();
-        mBgImg = GetComponent<Image>();
-        GameObject c = transform.GetChild(0).gameObject;
-        mContentImg = c.GetComponent<Image>();
-        GameObject globalObj = GameObject.Find("GlobalObj");
-        mGlobal = globalObj.GetComponent<Global>();
-        mBgImg.color = mNormalColor;
-        mContentImg.color = mNormalColor;
-        
-        photonView = GetComponent<PhotonView>();
-        if (photonView == null)
-        {
-          Debug.Log("cannot find photonview");
-        }
+      mRectTransform = GetComponent<RectTransform>();
+      mBgImg = GetComponent<Image>();
+      GameObject c = transform.GetChild(0).gameObject;
+      mContentImg = c.GetComponent<Image>();
+      GameObject globalObj = GameObject.Find("GlobalObj");
+      mGlobal = globalObj.GetComponent<Global>();
+      mBgImg.color = mNormalColor;
+      mContentImg.color = mNormalColor;
+      
+      photonView = GetComponent<PhotonView>();
+      if (photonView == null)
+      {
+        Debug.Log("cannot find photonview");
+      }
 
-        viewid = photonView.viewID;
+      viewid = photonView.viewID;
     }
     // Update is called once per frame
     void Update()
     {
-      SyncCell();
-      //if (Time.time - starttime < 2f)
-      // {
-      //   //Debug.Log((Time.time - starttime));
-      //   SyncCell();
-      // }
+      if (!synced) {
+        SyncCell();
+      }
     }
-
 
     public void SyncCell()
     {
-      gameObject.transform.SetParent(PhotonView.Find(parentID).transform);
+      PhotonView parent = PhotonView.Find(parentID);
+      if (!parent) {
+        return;
+      }
+      synced = true;
+      gameObject.transform.SetParent(parent.transform);
       gameObject.transform.localPosition = new Vector3(x * 100, y * 100, 0);
       gameObject.transform.localScale = new Vector3(1, 1, 1);
       RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
@@ -71,53 +75,36 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         mNormalColor = new Color(1.0f, 1.0f, 1.0f, 0.1f);
       }
       mBgImg.color = mNormalColor;
-      mContentImg.color = mNormalColor;
+      mContentImg.color = mNormalColor; 
     }
     
     public void PlantNewLily(LilyType type)
     {
       GameObject child;
-      //  switch (type) {
-      //    case LilyType.Gold: 
-      //      child = Instantiate(goldLily); // Satisfy compiler
-      //      break;
-      //    case LilyType.Blue:
-      //      child = Instantiate(blueLily);
-      //      break;
-      //    case LilyType.Pink:
-      //      child = Instantiate(pinkLily);
-      //      break;
-      //    case LilyType.White:
-      //      child = Instantiate(whiteLily);
-      //      break;
-      //    default:
-      //      child = Instantiate(whiteLily); // Satisfy compiler
-      //      break;
-      // }
       switch (type) {
-            case LilyType.Gold: 
-              child = PhotonNetwork.Instantiate(goldLily.name, Vector3.zero, quaternion.identity, 0); // Satisfy compiler
-              break;
-            case LilyType.Blue:
-              child = PhotonNetwork.Instantiate(blueLily.name, Vector3.zero, quaternion.identity, 0);
-              break;
-            case LilyType.Pink:
-              child = PhotonNetwork.Instantiate(pinkLily.name, Vector3.zero, quaternion.identity, 0);
-              break;
-            case LilyType.White:
-              child = PhotonNetwork.Instantiate(whiteLily.name, Vector3.zero, quaternion.identity, 0);
-              break;
-            default:
-              child = PhotonNetwork.Instantiate(whiteLily.name, Vector3.zero, quaternion.identity, 0); // Satisfy compiler
-              break;
-        }
+          case LilyType.Gold: 
+            child = PhotonNetwork.Instantiate(goldLily.name, Vector3.zero, quaternion.identity, 0); // Satisfy compiler
+            break;
+          case LilyType.Blue:
+            child = PhotonNetwork.Instantiate(blueLily.name, Vector3.zero, quaternion.identity, 0);
+            break;
+          case LilyType.Pink:
+            child = PhotonNetwork.Instantiate(pinkLily.name, Vector3.zero, quaternion.identity, 0);
+            break;
+          case LilyType.White:
+            child = PhotonNetwork.Instantiate(whiteLily.name, Vector3.zero, quaternion.identity, 0);
+            break;
+          default:
+            child = PhotonNetwork.Instantiate(whiteLily.name, Vector3.zero, quaternion.identity, 0); // Satisfy compiler
+            break;
+      }
 
-        child.GetComponent<BaseLily>().parentID = viewid;
-        child.transform.SetParent(gameObject.transform);
-        child.transform.localPosition = new Vector3(50, 50, 0);
-        child.transform.localScale = new Vector3(1, 1, 1);
-        child.transform.localRotation = Quaternion.identity;
-        ReorderComponent();
+      child.GetComponent<BaseLily>().parentID = viewid;
+      child.transform.SetParent(gameObject.transform);
+      child.transform.localPosition = new Vector3(50, 50, 0);
+      child.transform.localScale = new Vector3(1, 1, 1);
+      child.transform.localRotation = Quaternion.identity;
+      ReorderComponent();
     }
 
 
@@ -134,10 +121,8 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
       if (mGlobal.mSelectedLilyType != LilyType.None && GameConstants.enablePlant) {
         GameConstants.sunlight--;
         GameObject.Find("sunlightText").GetComponent<Text>().text = "SunLight: " + GameConstants.sunlight;
-        
         //photonView.RPC("PlantNewLily", PhotonTargets.All, mGlobal.mSelectedLilyType);
         PlantNewLily(mGlobal.mSelectedLilyType);
-        
         mGlobal.mSelectedLilyType = LilyType.None;
       }
     }

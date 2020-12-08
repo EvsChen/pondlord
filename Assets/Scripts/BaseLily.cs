@@ -18,6 +18,8 @@ public class BaseLily : Photon.MonoBehaviour
     protected bool functional = false;
     public int mPlayerId; // Used to distinguish player
     public int parentID = -1;
+    bool synced = true;
+
     public void ResetLily() {
       progress = 0;
       state = 1;
@@ -66,7 +68,9 @@ public class BaseLily : Photon.MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        SyncLily();
+        if (!synced) {
+          SyncLily();
+        }
         
         if(this.progress < 100f)
         {
@@ -109,9 +113,14 @@ public class BaseLily : Photon.MonoBehaviour
         }
     }
 
-    public void SyncLily()
+    void SyncLily()
     {
-        gameObject.transform.SetParent(PhotonView.Find(parentID).transform);
+        PhotonView parent = PhotonView.Find(parentID);
+        if (!parent) {
+          return;
+        }
+        synced = true;
+        gameObject.transform.SetParent(parent.transform);
         gameObject.transform.localPosition = new Vector3(50, 50, 0);
         gameObject.transform.localScale = new Vector3(1, 1, 1);
     }
