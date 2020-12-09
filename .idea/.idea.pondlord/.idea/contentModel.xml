@@ -294,6 +294,7 @@
           <e p="Board.cs" t="Include" />
           <e p="bullet.cs" t="Include" />
           <e p="Cell.cs" t="Include" />
+          <e p="ColorEachPlayer.cs" t="Include" />
           <e p="CountDownTimer.cs" t="Include" />
           <e p="Fish.cs" t="Include" />
           <e p="frog.cs" t="Include" />

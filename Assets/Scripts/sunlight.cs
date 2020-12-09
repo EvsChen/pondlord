@@ -20,11 +20,11 @@ public class sunlight : MonoBehaviour, IPointerClickHandler
     // Update is called once per frame
     void Update()
     {
-        if (!init && parentID != -1)
-        {
-            SyncSunlight();
-            init = true;
-        }
+        // if (!init && parentID != -1)
+        // {
+        //     SyncSunlight();
+        //     init = true;
+        // }
 
         timer += Time.deltaTime;
         if (timer > 5.0f) { 
@@ -32,12 +32,12 @@ public class sunlight : MonoBehaviour, IPointerClickHandler
         }
     }
     
-    public void SyncSunlight()
-    {
-        gameObject.transform.SetParent(PhotonView.Find(parentID).transform);
-        gameObject.transform.localPosition = new Vector3(0, 0, 0);
-        gameObject.transform.localScale = new Vector3(1, 1, 1);
-    }
+    // public void SyncSunlight()
+    // {
+    //     gameObject.transform.SetParent(PhotonView.Find(parentID).transform);
+    //     gameObject.transform.localPosition = new Vector3(0, 0, 0);
+    //     gameObject.transform.localScale = new Vector3(1, 1, 1);
+    // }
 
     public void OnPointerClick(PointerEventData eventData) {
       GameConstants.sunlight++;
@@ -48,18 +48,18 @@ public class sunlight : MonoBehaviour, IPointerClickHandler
       {
           GameConstants.enablePlant = true;
       }
-      PhotonNetwork.Destroy(gameObject);
+      Destroy(gameObject);
     }
 
-    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.isWriting)
-        {
-            stream.SendNext(parentID);
-        }
-        else
-        {
-            parentID = (int)stream.ReceiveNext();
-        }
-    }
+    // void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    // {
+    //     if (stream.isWriting)
+    //     {
+    //         stream.SendNext(parentID);
+    //     }
+    //     else
+    //     {
+    //         parentID = (int)stream.ReceiveNext();
+    //     }
+    // }
 }

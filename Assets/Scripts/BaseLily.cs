@@ -113,10 +113,14 @@ public class BaseLily : Photon.PunBehaviour
             {
                 //GameObject child = Instantiate(sunlight, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 
-                GameObject child = PhotonNetwork.Instantiate(sunlight.name, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity, 0);
-                child.GetComponent<sunlight>().parentID = viewid;
-                child.transform.parent = this.gameObject.transform;
-                child.transform.localPosition = new Vector3(0, 0, 0);
+                if (photonView.isMine)
+                {
+                    GameObject child = Instantiate(sunlight, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+                    //child.GetComponent<sunlight>().parentID = viewid;
+                    child.transform.parent = this.gameObject.transform;
+                    child.transform.localPosition = new Vector3(0, 0, 0);
+                    child.transform.localScale = new Vector3(1, 1, 1);
+                }
             }
         }
       
