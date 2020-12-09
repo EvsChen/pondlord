@@ -13,13 +13,13 @@ public class BaseLily : Photon.PunBehaviour
     public Sprite flower, leaf;
     public Image mImage;
     public GameObject sunlight;
-    Collider2D mCollider;
-    float updateTimer = 0.0f;
     public bool generateSun = false;
     protected bool functional = false;
     public int mPlayerId; // Used to distinguish player
     public int parentID = -1;
     bool synced = false;
+    Collider2D mCollider;
+    float updateTimer = 0.0f;
 
     public void ResetLily() {
       progress = 0;

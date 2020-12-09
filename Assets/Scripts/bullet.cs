@@ -90,20 +90,20 @@ public class bullet : Photon.MonoBehaviour
           Physics2D.IgnoreCollision(mCollider, collision.collider);
           return;
         }
+        if (photonView.isMine) {
+          PhotonNetwork.Destroy(gameObject);
+        } 
       } else if (collision.gameObject.CompareTag(GameConstants.Tags.protector)) {
         Debug.Log("Bullet hit by protector" + collision.gameObject.name);
         protector p = collision.gameObject.GetComponent<protector>();
         if (isSamePlayer) {
           Physics2D.IgnoreCollision(mCollider, collision.collider);
           return;
+        }
+        if (photonView.isMine) {
+          PhotonNetwork.Destroy(gameObject);
         } 
       } 
-      // if (!photonView.isMine) {
-      //   photonView.RequestOwnership();
-      // }
-      if (photonView.isMine) {
-        PhotonNetwork.Destroy(gameObject);
-      }
     }
     
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
