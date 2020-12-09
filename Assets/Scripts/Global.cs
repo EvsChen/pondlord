@@ -21,31 +21,11 @@ public class Global : MonoBehaviour
     public bool beeEvolve = false;
     public Canvas canvas;
     public Texture2D beeMouse;
+    bool init = false;
+
     void Start()
     {
-        // if (PhotonNetwork.player.IsMasterClient)
-        // {
-        //     PhotonNetwork.Instantiate(canvas.name, Vector3.zero, quaternion.identity, 0);
-        //     
-        // }
-       
-        GameObject boardObj = GameObject.Find("PF_board");
-        mBoard = boardObj.GetComponent<Board>();
-        //Set gamemode
-        GameObject GamemodeObj = GameObject.Find("Gamemode");
-        Text GamemodeText = GamemodeObj.GetComponent<Text>();
-        if (PlayerPrefs.GetInt("Gamemode") == 0)
-        {
-            GamemodeText.text = "Cooperative Mode";
-        } else if (PlayerPrefs.GetInt("Gamemode") == 1)
-        {
-            GamemodeText.text = "Competitive Mode";
-        }
-
-        
     }
-
-
 
     void AddFish() {
       bool added = false;
@@ -61,9 +41,31 @@ public class Global : MonoBehaviour
       }
     }
 
+    void InitBoard() {
+      GameObject boardObj = GameObject.Find("PF_board");
+      if (!boardObj) {
+        return;
+      }
+      init = true;
+      mBoard = boardObj.GetComponent<Board>();
+      //Set gamemode
+      GameObject GamemodeObj = GameObject.Find("Gamemode");
+      Text GamemodeText = GamemodeObj.GetComponent<Text>();
+      if (PlayerPrefs.GetInt("Gamemode") == 0)
+      {
+          GamemodeText.text = "Cooperative Mode";
+      } else if (PlayerPrefs.GetInt("Gamemode") == 1)
+      {
+          GamemodeText.text = "Competitive Mode";
+      }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (!init) {
+          InitBoard(); // Try finding board if we didn't find one already.
+        }
         if (beeEvolve)
         {
             //Debug.Log("bee true");

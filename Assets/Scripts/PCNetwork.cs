@@ -54,7 +54,6 @@ public class PCNetwork : Photon.MonoBehaviour
 
     public void GetRoomListAndShow() {
       currentRoomList = PhotonNetwork.GetRoomList();
-      Debug.Log("The length of the rooms is " + currentRoomList.Length);
       GameObject[] existBtns = GameObject.FindGameObjectsWithTag("roomButtons");
       foreach (GameObject btn in existBtns) {
         Destroy(btn);
@@ -62,7 +61,7 @@ public class PCNetwork : Photon.MonoBehaviour
       GameObject canvas = GameObject.Find("Canvas");
       for (int i = 0; i < currentRoomList.Length; i++) {
         RoomInfo ri = currentRoomList[i];
-        if (!ri.open || !ri.visible) {
+        if (!ri.IsOpen || !ri.IsVisible) {
           Debug.Log("Room " + ri.Name + " is not open or visible");
           continue;
         }

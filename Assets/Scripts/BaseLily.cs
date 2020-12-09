@@ -27,11 +27,9 @@ public class BaseLily : Photon.PunBehaviour
       hp = 2; // Should not be reset here
     }
 
-    private PhotonView photonView;
     public int viewid = -1;
     public void Start()
     {
-        photonView = GetComponent<PhotonView>();
         //Debug.Log(photonView.viewID);
         viewid = photonView.viewID;
         ResetLily();
@@ -50,10 +48,17 @@ public class BaseLily : Photon.PunBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-      if (collision.gameObject.CompareTag(GameConstants.Tags.bullet))
+      GameObject collideObj = collision.gameObject;
+      PhotonView pv = collideObj.GetComponent<PhotonView>();
+      if (!pv) {
+        return;
+      }
+      bool isSamePlayer = photonView.ownerId == pv.ownerId;
+      if (collideObj.CompareTag(GameConstants.Tags.bullet))
       {
-        bullet b = collision.gameObject.GetComponent<bullet>();
-        if (b.mPlayerId == this.mPlayerId) {
+        Debug.Log("Lily hit by " + collision.gameObject.name);
+        bullet b = collideObj.GetComponent<bullet>();
+        if (isSamePlayer) {
           //Debug.Log("Collide with same mPlayerId" + this.mPlayerId);
           Physics2D.IgnoreCollision(mCollider, collision.collider);
           return;
@@ -61,7 +66,9 @@ public class BaseLily : Photon.PunBehaviour
         Debug.Log("Bullet collision and hp is " + hp);
         hp--;
         if (hp <= 0) {
-          Destroy(gameObject);
+          if (photonView.isMine) {
+            PhotonNetwork.Destroy(gameObject);
+          }
         }
       }
     }
@@ -125,11 +132,6 @@ public class BaseLily : Photon.PunBehaviour
             Cursor.SetCursor(default, Vector2.zero, CursorMode.Auto);
             beeEvolve = false;
         }
-
-
-    }
-
-    void OnPhotonInstantiate(PhotonMessageInfo info) {
     }
 
     void SyncLily()
@@ -144,7 +146,7 @@ public class BaseLily : Photon.PunBehaviour
         gameObject.transform.localScale = new Vector3(1, 1, 1);
         Cell cell = parent.GetComponent<Cell>();
         PhotonPlayer owner = photonView.owner;
-        cell.mBgImg.color = owner.isMasterClient
+        cell.mBgImg.color = owner.IsMasterClient
           ? cell.mMasterColor
           : cell.mClientColor;
     }

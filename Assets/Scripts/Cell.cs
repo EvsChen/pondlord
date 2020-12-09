@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
-public class Cell : Photon.PunBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public Image mBgImg, mContentImg;
     public RectTransform mRectTransform;
@@ -21,8 +21,6 @@ public class Cell : Photon.PunBehaviour, IPointerEnterHandler, IPointerExitHandl
     public GameObject blueLily, whiteLily, goldLily, pinkLily;
     public GameObject mFishPrefab;
     public GameObject mFrogPrefab;
-
-    private PhotonView photonView;
 
     public int viewid = -1;
     public int parentID = -1;
@@ -53,13 +51,12 @@ public class Cell : Photon.PunBehaviour, IPointerEnterHandler, IPointerExitHandl
       mBgImg.color = mNormalColor;
       mContentImg.color = mNormalColor;
       
-      photonView = GetComponent<PhotonView>();
       if (photonView == null)
       {
         Debug.Log("cannot find photonview");
+      } else {
+        viewid = photonView.viewID;
       }
-
-      viewid = photonView.viewID;
     }
     // Update is called once per frame
     void Update()
@@ -246,6 +243,7 @@ public class Cell : Photon.PunBehaviour, IPointerEnterHandler, IPointerExitHandl
         child.GetComponent<frog>().parentID = viewid;
         ReorderComponent();
     }
+
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
       if (stream.isWriting)

@@ -6,10 +6,8 @@ public class protector : Photon.MonoBehaviour
 {
     public int mPlayerId;
     public int hp = 5;
-    
     public int parentID = -1;
-
-    private bool init = false;
+    bool init = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,18 +30,28 @@ public class protector : Photon.MonoBehaviour
         gameObject.transform.localPosition = new Vector3(0, 0, 0);
         gameObject.transform.localRotation = Quaternion.identity;
     }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag(GameConstants.Tags.bullet))
+        GameObject collideObj = collision.gameObject;
+        PhotonView pv = collideObj.GetComponent<PhotonView>();
+        if (!pv) {
+          return;
+        }
+        bool isSamePlayer = photonView.ownerId == pv.ownerId;
+        
+        if (collideObj.CompareTag(GameConstants.Tags.bullet))
         {
             bullet b = collision.gameObject.GetComponent<bullet>();
-            if (b.mPlayerId == mPlayerId) {
+            if (isSamePlayer) {
               return;
             }
             hp--;
             if (hp <= 0)
             {
-                PhotonNetwork.Destroy(this.gameObject);
+              if (photonView.isMine) {
+                PhotonNetwork.Destroy(gameObject);
+              }
             }
         }
 
