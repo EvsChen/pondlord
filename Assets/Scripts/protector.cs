@@ -49,8 +49,10 @@ public class protector : Photon.MonoBehaviour
             hp--;
             if (hp <= 0)
             {
-              if (photonView.isMine) {
+                Destroy(this.gameObject);
+                if (photonView.isMine) {
                 PhotonNetwork.Destroy(gameObject);
+                 
               }
             }
         }

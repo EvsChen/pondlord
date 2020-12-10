@@ -11,7 +11,7 @@ public class GoldLily : BaseLily
     new void Start()
     {   
       base.Start();
-
+        hp = 5;
         GameObject boardObj = GameObject.Find("PF_board");
         mBoard = boardObj.GetComponent<Board>();
     }

@@ -11,6 +11,7 @@ public class blueLily : BaseLily
     new void Start()
     {
         base.Start();
+        hp = 3;
     }
 
     // Update is called once per frame
@@ -18,7 +19,7 @@ public class blueLily : BaseLily
     {
         base.Update();
         if (functional){
-            float t = Random.Range(0, 500);
+            float t = Random.Range(0, 300);
             if (t < 1 && photonView.isMine)
             {
                 GameObject child = PhotonNetwork.Instantiate(bullet.name,

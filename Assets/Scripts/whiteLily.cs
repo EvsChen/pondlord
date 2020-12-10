@@ -10,7 +10,9 @@ public class whiteLily : BaseLily
     // Start is called before the first frame update
     new void Start()
     {
+
       base.Start();
+        hp = 5;
     }
 
     // Update is called once per frame

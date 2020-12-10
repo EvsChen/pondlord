@@ -30,6 +30,7 @@ public class BaseLily : Photon.PunBehaviour
     public int viewid = -1;
     public void Start()
     {
+       
         //Debug.Log(photonView.viewID);
         viewid = photonView.viewID;
         ResetLily();
@@ -65,10 +66,11 @@ public class BaseLily : Photon.PunBehaviour
         }
         Debug.Log("Bullet collision and hp is " + hp);
         hp--;
+        gameObject.GetComponentInChildren<Text>().text = hp + " hp";
         if (hp <= 0) {
-          if (photonView.isMine) {
+          if (photonView.isMine) {      
             PhotonNetwork.Destroy(gameObject);
-          }
+           }
         }
       }
     }

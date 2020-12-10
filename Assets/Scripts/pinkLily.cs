@@ -13,6 +13,7 @@
         new void Start()
         {
             base.Start();
+            hp = 2;
             mBoard = GameObject.Find("PF_board").GetComponent<Board>();
         }
 
