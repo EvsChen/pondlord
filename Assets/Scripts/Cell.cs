@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
-public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPunObservable
 {
     public Image mBgImg, mContentImg;
     public RectTransform mRectTransform;
@@ -254,7 +254,7 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         ReorderComponent();
     }
 
-    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
       if (stream.isWriting)
       {

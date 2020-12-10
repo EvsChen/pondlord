@@ -12,7 +12,7 @@ public class whiteLily : BaseLily
     {
 
       base.Start();
-        hp = 5;
+      hp = 5;
     }
 
     // Update is called once per frame
@@ -30,19 +30,5 @@ public class whiteLily : BaseLily
           c.transform.parent = transform;
           functional = false;
       }
-    }
-    
-    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.isWriting)
-        {
-            stream.SendNext(parentID);
-            stream.SendNext(hp);
-        }
-        else
-        {
-            parentID = (int)stream.ReceiveNext();
-            hp = (int)stream.ReceiveNext();
-        }
     }
 }

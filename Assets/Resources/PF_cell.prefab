@@ -168,6 +168,8 @@ MonoBehaviour:
   mContentImg: {fileID: 0}
   mRectTransform: {fileID: 0}
   mNormalColor: {r: 0, g: 0, b: 0, a: 0}
+  mMasterColor: {r: 0.5, g: 0, b: 0, a: 0.5}
+  mClientColor: {r: 0, g: 0, b: 0.5, a: 0.5}
   mBoard: {fileID: 0}
   mGlobal: {fileID: 0}
   x: 0

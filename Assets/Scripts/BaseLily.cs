@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class BaseLily : Photon.PunBehaviour
+public class BaseLily : Photon.MonoBehaviour, IPunObservable
 {
     GameObject mPbComponent;
     ProgressBar Pb;
@@ -65,14 +65,13 @@ public class BaseLily : Photon.PunBehaviour
           return;
         }
         Debug.Log("Bullet collision and hp is " + hp);
-        hp--;
-        gameObject.GetComponentInChildren<Text>().text = hp + " hp";
-
-          if (photonView.isMine) {      
-            PhotonNetwork.Destroy(gameObject);
-           }
-        
+        photonView.RPC("MinusHP", PhotonTargets.All);
       }
+    }
+
+    [PunRPC]
+    public void MinusHP() {
+      hp--;
     }
 
     // Update is called once per frame
@@ -80,6 +79,10 @@ public class BaseLily : Photon.PunBehaviour
     {
         if (!synced) {
           SyncLily();
+        }
+
+        if (photonView.isMine && hp <= 0) {
+          PhotonNetwork.Destroy(gameObject);
         }
         
         if(this.progress < 100f)
@@ -108,6 +111,7 @@ public class BaseLily : Photon.PunBehaviour
               updateTimer = 0.0f;
           }
         }
+        gameObject.GetComponentInChildren<Text>().text = hp + " hp";
         if (generateSun)
         {
             float t = Random.Range(0, 1000);
@@ -166,5 +170,17 @@ public class BaseLily : Photon.PunBehaviour
        Cell cell = parent.GetComponent<Cell>();
        PhotonPlayer owner = photonView.owner;
        cell.mBgImg.color = cell.mNormalColor;
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            stream.SendNext(parentID);
+        }
+        else
+        {
+            parentID = (int)stream.ReceiveNext();
+        }
     }
 }

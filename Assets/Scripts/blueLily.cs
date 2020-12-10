@@ -32,18 +32,4 @@ public class blueLily : BaseLily
             }
         }
     }
-    
-    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.isWriting)
-        {
-            stream.SendNext(parentID);
-            stream.SendNext(hp);
-        }
-        else
-        {
-            parentID = (int)stream.ReceiveNext();
-            hp = (int)stream.ReceiveNext();
-        }
-    }
 }
