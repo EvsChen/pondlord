@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class protector : Photon.MonoBehaviour
+public class protector : Photon.MonoBehaviour, IPunObservable
 {
     public int mPlayerId;
     public int hp = 5;
@@ -22,6 +22,9 @@ public class protector : Photon.MonoBehaviour
             SyncProtector();
             init = true;
         }
+        if (hp <= 0 && photonView.isMine) {
+            PhotonNetwork.Destroy(gameObject);
+        }
     }
 
     void SyncProtector()
@@ -29,6 +32,11 @@ public class protector : Photon.MonoBehaviour
         gameObject.transform.SetParent(PhotonView.Find(parentID).transform);
         gameObject.transform.localPosition = new Vector3(0, 0, 0);
         gameObject.transform.localRotation = Quaternion.identity;
+    }
+
+    [PunRPC]
+    public void MinusHP() {
+      hp--;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -46,20 +54,12 @@ public class protector : Photon.MonoBehaviour
             if (isSamePlayer) {
               return;
             }
-            hp--;
-            if (hp <= 0)
-            {
-                Destroy(this.gameObject);
-                if (photonView.isMine) {
-                PhotonNetwork.Destroy(gameObject);
-                 
-              }
-            }
+            photonView.RPC("MinusHP", PhotonTargets.All);
         }
 
     }
     
-    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting)
         {

@@ -30,7 +30,6 @@ public class BaseLily : Photon.MonoBehaviour, IPunObservable
     public int viewid = -1;
     public void Start()
     {
-       
         //Debug.Log(photonView.viewID);
         viewid = photonView.viewID;
         ResetLily();
