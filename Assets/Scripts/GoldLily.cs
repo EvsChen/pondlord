@@ -43,10 +43,13 @@ public class GoldLily : BaseLily
             float t = Random.Range(0, 3000);
             if (t < 1)
             {
-                GameObject child = Instantiate(bee, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-                child.transform.parent = gameObject.transform;
+                GameObject child = PhotonNetwork.Instantiate(bee.name, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity, 0);
+
+                //GameObject child = Instantiate(bee, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+                
                 bee b = child.GetComponent<bee>();
                 b.mPlayerId = mPlayerId;
+                b.parentID = viewid;
             }
 
             float t2 = Random.Range(0, 30);

@@ -110,7 +110,7 @@ MonoBehaviour:
   viewid: -1
   mBoard: {fileID: 0}
   bee: {fileID: 2138766179759666882, guid: 0e066dfb28266434a9a20dbdb7bde2d5, type: 3}
-  frog: {fileID: 0}
+  frog: {fileID: 3827806553914315633, guid: 3c70f176d5bb2854b97eb1ad127dc918, type: 3}
 --- !u!114 &-4059075162931637237
 MonoBehaviour:
   m_ObjectHideFlags: 0

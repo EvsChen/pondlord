@@ -28,6 +28,9 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private float starttime;
     bool synced = false;
 
+    private GameObject thislily;
+    public int thislilyViewId = -1;
+
     public bool HasLily() {
       for (int i = 0; i < transform.childCount; i++) {
         GameObject c = transform.GetChild(i).gameObject;
@@ -89,6 +92,10 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     
     public void PlantNewLily(LilyType type)
     {
+        if (PhotonView.Find(thislilyViewId) != null)
+        {
+            return;
+        }
       GameObject child;
       switch (type) {
           case LilyType.Gold: 
@@ -114,6 +121,9 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
       child.transform.localScale = new Vector3(1, 1, 1);
       child.transform.localRotation = Quaternion.identity;
       ReorderComponent();
+
+      thislily = child;
+      thislilyViewId = thislily.GetComponent<PhotonView>().viewID;
     }
 
 
@@ -251,12 +261,14 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         stream.SendNext(parentID);
         stream.SendNext(x);
         stream.SendNext(y);
+        stream.SendNext(thislilyViewId);
       }
       else
       {
         parentID = (int)stream.ReceiveNext();
         x = (int)stream.ReceiveNext();
         y = (int)stream.ReceiveNext();
+        thislilyViewId = (int)stream.ReceiveNext();
       }
     }
 

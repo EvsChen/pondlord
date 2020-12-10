@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class frog : MonoBehaviour
+public class frog : Photon.MonoBehaviour
 {
     public int parentID = -1;
 
