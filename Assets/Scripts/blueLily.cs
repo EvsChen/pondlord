@@ -19,7 +19,7 @@ public class blueLily : BaseLily
     {
         base.Update();
         if (functional){
-            float t = Random.Range(0, 300);
+            float t = Random.Range(0, 100);
             if (t < 1 && photonView.isMine)
             {
                 GameObject child = PhotonNetwork.Instantiate(bullet.name,
@@ -38,10 +38,12 @@ public class blueLily : BaseLily
         if (stream.isWriting)
         {
             stream.SendNext(parentID);
+            stream.SendNext(hp);
         }
         else
         {
             parentID = (int)stream.ReceiveNext();
+            hp = (int)stream.ReceiveNext();
         }
     }
 }

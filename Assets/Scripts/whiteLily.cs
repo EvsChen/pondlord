@@ -37,10 +37,12 @@ public class whiteLily : BaseLily
         if (stream.isWriting)
         {
             stream.SendNext(parentID);
+            stream.SendNext(hp);
         }
         else
         {
             parentID = (int)stream.ReceiveNext();
+            hp = (int)stream.ReceiveNext();
         }
     }
 }

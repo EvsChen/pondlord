@@ -67,11 +67,11 @@ public class BaseLily : Photon.PunBehaviour
         Debug.Log("Bullet collision and hp is " + hp);
         hp--;
         gameObject.GetComponentInChildren<Text>().text = hp + " hp";
-        if (hp <= 0) {
+
           if (photonView.isMine) {      
             PhotonNetwork.Destroy(gameObject);
            }
-        }
+        
       }
     }
 
