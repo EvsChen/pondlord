@@ -124,6 +124,19 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
       thislily = child;
       thislilyViewId = thislily.GetComponent<PhotonView>().viewID;
+      
+      //update score
+          PlayerScore playerScore = GameObject.Find("CanvasGlobal").GetComponent<PlayerScore>();
+          if (child.GetPhotonView().owner.IsMasterClient)
+          {
+              playerScore.AddMasterScore();
+          }
+          else
+          {
+              playerScore.AddClientScore();
+          }
+      
+
     }
 
 

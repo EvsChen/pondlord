@@ -23,6 +23,7 @@ public class Global : MonoBehaviour
     public Texture2D beeMouse;
     bool init = false;
     public int sunlightNum;
+    
 
     void Start()
     {
@@ -129,4 +130,5 @@ public class Global : MonoBehaviour
     public void OnLilyDeselect() {
       mSelectedLilyType = LilyType.None;
     }
+
 }

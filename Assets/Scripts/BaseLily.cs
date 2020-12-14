@@ -81,6 +81,17 @@ public class BaseLily : Photon.MonoBehaviour, IPunObservable
         }
 
         if (photonView.isMine && hp <= 0) {
+            //update score
+            PlayerScore playerScore = GameObject.Find("CanvasGlobal").GetComponent<PlayerScore>();
+            if (photonView.owner.IsMasterClient)
+            {
+                playerScore.ReduceMasterScore();
+            }
+            else
+            {
+                playerScore.ReduceClientScore();
+            }
+            
           PhotonNetwork.Destroy(gameObject);
         }
         

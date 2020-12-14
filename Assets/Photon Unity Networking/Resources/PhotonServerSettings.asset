@@ -47,4 +47,8 @@ MonoBehaviour:
   - setParent
   - PlantNewLily
   - MinusHP
+  - AddClientScorePun
+  - AddMasterScorePun
+  - ReduceClientScorePun
+  - ReduceMasterScorePun
   DisableAutoOpenWizard: 1
