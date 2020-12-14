@@ -133,33 +133,33 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         return;
       }
       
-      if (GameConstants.sunlight <= 0)
+      if (mGlobal.sunlightNum <= 0)
       {
         GameConstants.enablePlant = false;
       }
       if (mGlobal.mSelectedLilyType != LilyType.None && GameConstants.enablePlant) {
-           if(mGlobal.mSelectedLilyType == LilyType.Gold && (GameConstants.sunlight-8) >= 0)
+           if(mGlobal.mSelectedLilyType == LilyType.Gold && (mGlobal.sunlightNum-8) >= 0)
             {
-                GameConstants.sunlight -= 8;
+                mGlobal.sunlightNum -= 8;
                 PlantNewLily(mGlobal.mSelectedLilyType);
             }
-            else if (mGlobal.mSelectedLilyType == LilyType.Blue && (GameConstants.sunlight - 3) >= 0)
+            else if (mGlobal.mSelectedLilyType == LilyType.Blue && (mGlobal.sunlightNum - 3) >= 0)
            {
-                GameConstants.sunlight -= 3;
+                mGlobal.sunlightNum -= 3;
                 PlantNewLily(mGlobal.mSelectedLilyType);
             }
-            else if (mGlobal.mSelectedLilyType == LilyType.Pink && (GameConstants.sunlight - 5) >= 0)
+            else if (mGlobal.mSelectedLilyType == LilyType.Pink && (mGlobal.sunlightNum - 5) >= 0)
             {
-                GameConstants.sunlight -= 5;
+                mGlobal.sunlightNum -= 5;
                 PlantNewLily(mGlobal.mSelectedLilyType);
             }
-            else if (mGlobal.mSelectedLilyType == LilyType.White && (GameConstants.sunlight - 2) >= 0)
+            else if (mGlobal.mSelectedLilyType == LilyType.White && (mGlobal.sunlightNum - 2) >= 0)
             {
-                GameConstants.sunlight -= 2;
+                mGlobal.sunlightNum -= 2;
                 PlantNewLily(mGlobal.mSelectedLilyType);
             }
 
-            GameObject.Find("sunlightText").GetComponent<Text>().text = "SunLight: " + GameConstants.sunlight;
+            GameObject.Find("sunlightText").GetComponent<Text>().text = "SunLight: " + mGlobal.sunlightNum;
         //photonView.RPC("PlantNewLily", PhotonTargets.All, mGlobal.mSelectedLilyType);
         
         mGlobal.mSelectedLilyType = LilyType.None;

@@ -43,6 +43,7 @@ public class PlayerInRoomGUI : MonoBehaviour
             if (PhotonNetwork.room.PlayerCount >= 1)
             {
                 playerSign.SetActive(true);
+                numText = playerNum.GetComponent<TextMeshProUGUI>();
                 numText.text = "Number of players: 1";
             } 
         }
@@ -52,6 +53,7 @@ public class PlayerInRoomGUI : MonoBehaviour
             if (PhotonNetwork.room.PlayerCount == 2)
             {
                 otherplayerSign.SetActive(true);
+                numText = playerNum.GetComponent<TextMeshProUGUI>();
                 numText.text = "Number of players: 2";
             } 
         }

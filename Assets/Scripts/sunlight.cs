@@ -15,6 +15,7 @@ public class sunlight : MonoBehaviour, IPointerClickHandler
     void Start()
     {
         mSunlightText = GameObject.Find("sunlightText");
+        
     }
 
     // Update is called once per frame
@@ -39,12 +40,15 @@ public class sunlight : MonoBehaviour, IPointerClickHandler
     //     gameObject.transform.localScale = new Vector3(1, 1, 1);
     // }
 
-    public void OnPointerClick(PointerEventData eventData) {
-      GameConstants.sunlight++;
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Global global = GameObject.Find("GlobalObj").GetComponent<Global>();
+        global.sunlightNum++; //GameConstants.sunlight++;
+      
       if (mSunlightText) {
-        mSunlightText.GetComponent<Text>().text = "SunLight: " + GameConstants.sunlight;
+        mSunlightText.GetComponent<Text>().text = "SunLight: " + global.sunlightNum;
       }
-      if (GameConstants.sunlight > 0)
+      if (global.sunlightNum > 0)
       {
           GameConstants.enablePlant = true;
       }

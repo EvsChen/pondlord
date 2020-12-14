@@ -20,15 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cdc69e2-2c7b-4b4f-82d6-dcdf54318859" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/bee.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/bee.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/goldSeed.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/goldSeed.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Canvas.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cell.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GoldLily.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GoldLily.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/bee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/bee.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/frog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/frog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CountDownTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CountDownTimer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameConstants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Global_MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Global_MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerInRoomGUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerInRoomGUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/sunlight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/sunlight.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,10 +51,8 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Photon Unity Networking/Demos/DemoBoxes/DemoBoxesGui.cs" />
         <option value="$PROJECT_DIR$/Assets/Photon Unity Networking/Demos/DemoBoxes/ColorPerPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CountDownTimer.cs" />
         <option value="$PROJECT_DIR$/Assets/GameConstants.cs" />
         <option value="$PROJECT_DIR$/Assets/Global.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Global_MainMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Board.cs" />
         <option value="$PROJECT_DIR$/Assets/blueLily.cs" />
         <option value="$PROJECT_DIR$/Assets/GoldLily.cs" />
@@ -62,10 +61,8 @@
         <option value="$PROJECT_DIR$/Assets/BaseLily.cs" />
         <option value="$PROJECT_DIR$/Assets/Cell.cs" />
         <option value="$PROJECT_DIR$/Assets/Fish.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerInRoomGUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Board.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fish.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Global.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NetworkGUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/blueLily.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PCNetwork.cs" />
@@ -73,13 +70,18 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/whiteLily.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/protector.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/bullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/sunlight.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BaseLily.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/pinkLily.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Cell.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/frog.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/bee.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GoldLily.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Global.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Cell.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/sunlight.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CountDownTimer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerInRoomGUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameConstants.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Global_MainMenu.cs" />
       </list>
     </option>
   </component>
@@ -146,6 +148,7 @@
       <workItem from="1607403087202" duration="495000" />
       <workItem from="1607497753330" duration="581000" />
       <workItem from="1607570785668" duration="1503000" />
+      <workItem from="1607910542568" duration="2095000" />
     </task>
     <servers />
   </component>
@@ -168,5 +171,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="100" y="100" width="1080" height="600" key="VCS.FileHistoryDialog" timestamp="1607911217924">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="100" y="100" width="1080" height="600" key="VCS.FileHistoryDialog/0.23.1280.777@0.23.1280.777" timestamp="1607911217924" />
+    <state x="303" y="121" width="672" height="678" key="search.everywhere.popup" timestamp="1607911862551">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="303" y="121" width="672" height="678" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1607911862551" />
   </component>
 </project>

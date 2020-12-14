@@ -22,9 +22,11 @@ public class Global : MonoBehaviour
     public Canvas canvas;
     public Texture2D beeMouse;
     bool init = false;
+    public int sunlightNum;
 
     void Start()
     {
+        sunlightNum = GameConstants.sunlight;
     }
 
     void AddFish() {

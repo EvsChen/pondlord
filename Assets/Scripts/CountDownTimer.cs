@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CountDownTimer : MonoBehaviour
 {
-    public float totalTime = 180;
+    private float totalTime;
     private float currentTime = 0;
 
     private TextMeshProUGUI minuteText;
@@ -18,6 +18,7 @@ public class CountDownTimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        totalTime = GameConstants.countDownTime;
         minuteText = minute.GetComponent<TextMeshProUGUI>();
         secondText = second.GetComponent<TextMeshProUGUI>();
         

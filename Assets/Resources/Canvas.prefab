@@ -1012,7 +1012,6 @@ GameObject:
   - component: {fileID: 6008492601255387350}
   - component: {fileID: 6008492601255387346}
   - component: {fileID: -6692605895296452629}
-  - component: {fileID: 4842539837501598259}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -1188,25 +1187,6 @@ MonoBehaviour:
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
---- !u!114 &4842539837501598259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6008492601255387351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f597ca949ee32422a9237ecfff9dec65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mSelectedLilyType: 4
-  mBoard: {fileID: 6008492600413491787}
-  fishTimer: 0
-  fishTimerMax: 10
-  beeEvolve: 0
-  canvas: {fileID: 0}
-  beeMouse: {fileID: 0}
 --- !u!1 &6008492601308396416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,7 +1702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762cdbd7b246940989244638fea7d637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 300
+  totalTime: 30
   minute: {fileID: 6008492601308396416}
   second: {fileID: 6008492601402178725}
 --- !u!1 &6008492601601449731
