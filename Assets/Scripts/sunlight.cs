@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 public class sunlight : MonoBehaviour, IPointerClickHandler
 {
     public int parentID = -1;
-    private bool init = false;
     GameObject mSunlightText;
     private float timer;
     public AudioSource sunGen;
