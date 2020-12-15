@@ -21,13 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0cdc69e2-2c7b-4b4f-82d6-dcdf54318859" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pondlord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LoseScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LoseScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/WinScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WinScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CountDownTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CountDownTimer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameConstants.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Global.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Global_MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Global_MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon Unity Networking/Resources/PhotonServerSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,8 +76,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/CountDownTimer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Global_MainMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Global.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScore.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameConstants.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScore.cs" />
       </list>
     </option>
   </component>
@@ -148,7 +145,8 @@
       <workItem from="1607497753330" duration="581000" />
       <workItem from="1607570785668" duration="1503000" />
       <workItem from="1607910542568" duration="6304000" />
-      <workItem from="1607997167992" duration="3562000" />
+      <workItem from="1607997167992" duration="3695000" />
+      <workItem from="1608011787501" duration="303000" />
     </task>
     <servers />
   </component>

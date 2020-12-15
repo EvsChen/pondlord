@@ -29,46 +29,46 @@ public class PlayerScore : Photon.MonoBehaviour
     public void AddMasterScore()
     {
         photonView.RPC("AddMasterScorePun", PhotonTargets.All);
-        GameObject.Find("MasterScore").GetComponent<Text>().text = "Red: " + masterScore;
     }
     [PunRPC]
     public void AddMasterScorePun()
     {
         masterScore++;
+        GameObject.Find("MasterScore").GetComponent<Text>().text = "Red: " + masterScore;
     }
     //
     public void ReduceMasterScore()
     {
         photonView.RPC("ReduceMasterScorePun", PhotonTargets.All);
-        GameObject.Find("MasterScore").GetComponent<Text>().text = "Red: " + masterScore;
     }
     [PunRPC]
     public void ReduceMasterScorePun()
     {
         masterScore--;
+        GameObject.Find("MasterScore").GetComponent<Text>().text = "Red: " + masterScore;
     }
     //
     public void AddClientScore()
     {
         photonView.RPC("AddClientScorePun", PhotonTargets.All);
-        GameObject.Find("ClientScore").GetComponent<Text>().text = "Blue: " + clientScore;
     }
     [PunRPC]
     public void AddClientScorePun()
     {
         clientScore++;
+        GameObject.Find("ClientScore").GetComponent<Text>().text = "Blue: " + clientScore;
         
     }
     //
     public void ReduceClientScore()
     {
         photonView.RPC("ReduceClientScorePun", PhotonTargets.All);
-        GameObject.Find("ClientScore").GetComponent<Text>().text = "Blue: " + clientScore;
     }
     [PunRPC]
     public void ReduceClientScorePun()
     {
         clientScore--;
+        GameObject.Find("ClientScore").GetComponent<Text>().text = "Blue: " + clientScore;
     }
 
     public void EndGame()
