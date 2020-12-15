@@ -33,13 +33,14 @@ public class LilyButton : MonoBehaviour
 
     public void BtnSelect() {
       ColorBlock cBlock = mButton.colors;
-      mBtnImg.color = cBlock.pressedColor;
+      Debug.Log("Pressed color is " + cBlock.pressedColor);
+      mBtnImg.color = new Color(0.3f, 0.3f, 0.3f, 0.5f);
       isSelected = true;
     }
 
     public void BtnDeselect() {
       ColorBlock cBlock = mButton.colors;
-      mBtnImg.color = cBlock.normalColor;
+      mBtnImg.color = new Color(0.3f, 0.3f, 0.3f, 0.0f);
       isSelected = false;
     }
 
