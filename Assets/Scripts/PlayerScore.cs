@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScore : Photon.MonoBehaviour
 {
     //score
     private int masterScore = 0;
     private int clientScore = 0;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,11 @@ public class PlayerScore : Photon.MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (masterScore + clientScore == GameConstants.maxScore)
+        {
+            EndGame();
         
+        }
     }
     
     public void AddMasterScore()
@@ -64,4 +68,58 @@ public class PlayerScore : Photon.MonoBehaviour
     {
         clientScore--;
     }
+
+    public void EndGame()
+    {
+        //Cooperative
+        if (PlayerPrefs.GetInt("Gamemode") == 0)
+        {
+            if (masterScore + clientScore == GameConstants.maxScore)
+            {
+                PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.player);
+                PhotonNetwork.LeaveRoom();
+                SceneManager.LoadScene("WinScene");
+            }
+            else
+            {
+                PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.player);
+                PhotonNetwork.LeaveRoom();
+                SceneManager.LoadScene("LoseScene");
+            }
+        }
+        // Competitive
+        else if (PlayerPrefs.GetInt("Gamemode") == 1)
+        {
+            if (PhotonNetwork.player.IsMasterClient)
+            {
+                PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.player);
+                PhotonNetwork.LeaveRoom();
+                if (masterScore < clientScore)
+                {
+                    SceneManager.LoadScene("LoseScene");
+                }
+                else
+                {
+                    SceneManager.LoadScene("WinScene");
+                }
+            }
+            else
+            {
+                PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.player);
+                PhotonNetwork.LeaveRoom();
+                if (clientScore < masterScore)
+                {
+                    SceneManager.LoadScene("LoseScene");
+                }
+                else
+                {
+                    SceneManager.LoadScene("WinScene");
+                }
+            }
+
+        }
+
+    }
+
+
 }
