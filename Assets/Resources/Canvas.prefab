@@ -4987,6 +4987,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a839c6dfef3422e94d3c09f9f7657f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wincanvas: {fileID: 7462759041824132572, guid: 217f25e5fae8948c5b131c5f4d890569,
+    type: 3}
+  losecanvas: {fileID: 5393423696027939000, guid: b683ff472a59b49a18f97e2ab8081419,
+    type: 3}
 --- !u!114 &1410291739899673510
 MonoBehaviour:
   m_ObjectHideFlags: 0

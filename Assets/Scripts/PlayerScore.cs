@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class PlayerScore : Photon.MonoBehaviour
 {
+    public GameObject wincanvas;
+
+    public GameObject losecanvas;
     //score
     private int masterScore = 0;
     private int clientScore = 0;
@@ -78,15 +81,15 @@ public class PlayerScore : Photon.MonoBehaviour
         {
             if (masterScore + clientScore == GameConstants.maxScore)
             {
-                PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.player);
-                PhotonNetwork.LeaveRoom();
-                SceneManager.LoadScene("WinScene");
+                Instantiate(wincanvas);
+                //SceneManager.LoadScene("WinScene");
             }
             else
             {
-                PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.player);
-                PhotonNetwork.LeaveRoom();
-                SceneManager.LoadScene("LoseScene");
+                Instantiate(losecanvas);
+                //GameObject.Find("Canvas").SetActive(false);
+                GameObject.Find("LoseCanvas").SetActive(true);
+                //SceneManager.LoadScene("LoseScene");
             }
         }
         // Competitive
@@ -94,34 +97,32 @@ public class PlayerScore : Photon.MonoBehaviour
         {
             if (PhotonNetwork.player.IsMasterClient)
             {
-                PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.player);
-                PhotonNetwork.LeaveRoom();
                 if (masterScore < clientScore)
                 {
-                    SceneManager.LoadScene("LoseScene");
+                    Instantiate(losecanvas);
                 }
                 else
                 {
-                    SceneManager.LoadScene("WinScene");
+                    Instantiate(wincanvas);
                 }
             }
             else
             {
+                Debug.Log("client lose");
                 PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.player);
                 PhotonNetwork.LeaveRoom();
                 if (clientScore < masterScore)
                 {
-                    SceneManager.LoadScene("LoseScene");
+                    Instantiate(losecanvas);
                 }
                 else
                 {
-                    SceneManager.LoadScene("WinScene");
+                    Instantiate(wincanvas);
                 }
             }
 
         }
 
     }
-
 
 }

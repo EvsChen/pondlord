@@ -70,6 +70,9 @@ EditorBuildSettings:
       for 4.unity
     guid: e7a7f9734636d415ca84ef3aaf7680f6
   - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: 1fe470a6fdc2640bc91e2e83e509c304
+  - enabled: 1
     path: Assets/Scenes/RoomSelection.unity
     guid: 2f87f9fa0f8064d419680425377f84d8
   - enabled: 1
@@ -78,9 +81,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoseScene.unity
     guid: 465b93a5288b34f50b3329acb14f4467
-  - enabled: 1
-    path: Assets/Scenes/StartMenu.unity
-    guid: 1fe470a6fdc2640bc91e2e83e509c304
   - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: 4d4d781e82a8c45cab15a16c25872608
