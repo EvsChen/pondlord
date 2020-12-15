@@ -90,12 +90,14 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
       mContentImg.color = mNormalColor; 
     }
     
+    [PunRPC]
     public void PlantNewLily(LilyType type)
     {
-        if (PhotonView.Find(thislilyViewId) != null)
-        {
-            return;
-        }
+      Debug.Log("Plant new lily called");
+      if (PhotonView.Find(thislilyViewId) != null)
+      {
+          return;
+      }
       GameObject child;
       switch (type) {
           case LilyType.Gold: 
@@ -116,10 +118,10 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
       }
 
       child.GetComponent<BaseLily>().parentID = viewid;
-      child.transform.SetParent(gameObject.transform);
-      child.transform.localPosition = new Vector3(50, 50, 0);
-      child.transform.localScale = new Vector3(1, 1, 1);
-      child.transform.localRotation = Quaternion.identity;
+      // child.transform.SetParent(gameObject.transform);
+      // child.transform.localPosition = new Vector3(50, 50, 0);
+      // child.transform.localScale = new Vector3(1, 1, 1);
+      // child.transform.localRotation = Quaternion.identity;
       ReorderComponent();
 
       thislily = child;

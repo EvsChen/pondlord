@@ -8,13 +8,11 @@ public class PlayerScore : Photon.MonoBehaviour
     //score
     private int masterScore = 0;
     private int clientScore = 0;
-
     // Start is called before the first frame update
     void Start()
     {
         masterScore = 0;
         clientScore = 0;
-
     }
 
     // Update is called once per frame
