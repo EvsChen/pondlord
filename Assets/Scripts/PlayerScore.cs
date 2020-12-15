@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerScore : Photon.MonoBehaviour
 {
@@ -28,8 +29,7 @@ public class PlayerScore : Photon.MonoBehaviour
     public void AddMasterScore()
     {
         photonView.RPC("AddMasterScorePun", PhotonTargets.All);
-        Debug.Log("Master score: " + masterScore);
-        Debug.Log("Client score: " + clientScore);
+        GameObject.Find("MasterScore").GetComponent<Text>().text = "Red: " + masterScore;
     }
     [PunRPC]
     public void AddMasterScorePun()
@@ -40,6 +40,7 @@ public class PlayerScore : Photon.MonoBehaviour
     public void ReduceMasterScore()
     {
         photonView.RPC("ReduceMasterScorePun", PhotonTargets.All);
+        GameObject.Find("MasterScore").GetComponent<Text>().text = "Red: " + masterScore;
     }
     [PunRPC]
     public void ReduceMasterScorePun()
@@ -50,18 +51,19 @@ public class PlayerScore : Photon.MonoBehaviour
     public void AddClientScore()
     {
         photonView.RPC("AddClientScorePun", PhotonTargets.All);
-        Debug.Log("Master score: " + masterScore);
-        Debug.Log("Client score: " + clientScore);
+        GameObject.Find("ClientScore").GetComponent<Text>().text = "Blue: " + clientScore;
     }
     [PunRPC]
     public void AddClientScorePun()
     {
         clientScore++;
+        
     }
     //
     public void ReduceClientScore()
     {
         photonView.RPC("ReduceClientScorePun", PhotonTargets.All);
+        GameObject.Find("ClientScore").GetComponent<Text>().text = "Blue: " + clientScore;
     }
     [PunRPC]
     public void ReduceClientScorePun()
