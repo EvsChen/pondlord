@@ -42,6 +42,7 @@
                 if (newX + 1 < mWidth && mAllCells[newX + 1, newY].transform.childCount == 1)
                     {
                         Cell c = mAllCells[newX + 1, newY];
+                        // Only call the cell of the same owner to plant
                         c.photonView.RPC("PlantNewLily", photonView.owner, LilyType.Pink);
                         functional = false;
                     }

@@ -262,6 +262,7 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
       child.GetComponent<Fish>().parentID = viewid;
       ReorderComponent();
     }
+
     public void AddFrog()
     {
         GameObject child = PhotonNetwork.Instantiate(mFrogPrefab.name, Vector3.zero, quaternion.identity, 0);
