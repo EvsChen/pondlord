@@ -6,7 +6,7 @@ public static class GameConstants {
   public static int mBoardWidth = 8;
   public static int mBoardHeight = 8;
   public static int sunlight = 40;
-  public static int countDownTime = 300;
+  public static int countDownTime = 180;
   public static bool enablePlant = true;
   public static int maxScore = 64;
 
