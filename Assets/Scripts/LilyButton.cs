@@ -12,6 +12,7 @@ public class LilyButton : MonoBehaviour
     Global mGlobal;
     private bool isSelected = false; // Custom state for button press
     private List<LilyButton> mAllBtns = new List<LilyButton>();
+    public AudioSource click;
     void Start()
     {
         mButton = GetComponent<Button>();
@@ -56,5 +57,10 @@ public class LilyButton : MonoBehaviour
         BtnDeselect();
         mGlobal.OnLilyDeselect();
       }
+    }
+
+    public void playClick()
+    {
+        click.Play();
     }
 }

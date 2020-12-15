@@ -17,8 +17,11 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public Global mGlobal;
     public int x;
     public int y;
+    public AudioSource click;
+    public AudioSource evolve;
 
     public GameObject blueLily, whiteLily, goldLily, pinkLily;
+    public GameObject evolveParticle;
     public GameObject mFishPrefab;
     public GameObject mFrogPrefab;
 
@@ -92,12 +95,15 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     
     public void PlantNewLily(LilyType type)
     {
+
         if (PhotonView.Find(thislilyViewId) != null)
         {
             return;
         }
       GameObject child;
-      switch (type) {
+       
+        switch (type) {
+           
           case LilyType.Gold: 
             child = PhotonNetwork.Instantiate(goldLily.name, Vector3.zero, quaternion.identity, 0); // Satisfy compiler
             break;
@@ -141,6 +147,20 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
 
     public void OnPointerClick(PointerEventData eventData) {
+        if (GameObject.Find("GlobalObj").GetComponent<Global>().beeEvolve  && PhotonView.Find(thislilyViewId) != null) 
+        {
+            evolve.Play();
+            thislily.GetComponent<BaseLily>().progress = 90;
+            thislily.GetComponent<BaseLily>().state = 2;
+            thislily.GetComponent<BaseLily>().beeApplied = true;
+            GameObject.Find("GlobalObj").GetComponent<Global>().beeEvolve = false;
+            GameObject child = PhotonNetwork.Instantiate(evolveParticle.name, Vector3.zero, quaternion.identity, 0);
+            child.transform.SetParent(gameObject.transform);
+            child.transform.localPosition = new Vector3(50, 50, 1);
+            child.transform.localScale = new Vector3(5, 5, 1);
+            child.transform.localRotation = Quaternion.identity;
+            ReorderComponent();
+        }
       if (!PhotonNetwork.inRoom /*|| PhotonNetwork.room.PlayerCount != 2*/)
       {
         return;
@@ -151,7 +171,8 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         GameConstants.enablePlant = false;
       }
       if (mGlobal.mSelectedLilyType != LilyType.None && GameConstants.enablePlant) {
-           if(mGlobal.mSelectedLilyType == LilyType.Gold && (mGlobal.sunlightNum-8) >= 0)
+            click.Play();
+            if (mGlobal.mSelectedLilyType == LilyType.Gold && (mGlobal.sunlightNum-8) >= 0)
             {
                 mGlobal.sunlightNum -= 8;
                 PlantNewLily(mGlobal.mSelectedLilyType);

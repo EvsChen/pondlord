@@ -10,12 +10,14 @@ public class sunlight : MonoBehaviour, IPointerClickHandler
     private bool init = false;
     GameObject mSunlightText;
     private float timer;
-    
+    public AudioSource sunGen;
+    public AudioSource sunCollect;
+
     // Start is called before the first frame update
     void Start()
     {
         mSunlightText = GameObject.Find("sunlightText");
-        
+        sunGen.Play();
     }
 
     // Update is called once per frame
@@ -26,11 +28,13 @@ public class sunlight : MonoBehaviour, IPointerClickHandler
         //     SyncSunlight();
         //     init = true;
         // }
-
+        transform.Rotate(0, 0, 0.5f, Space.Self);
         timer += Time.deltaTime;
         if (timer > 5.0f) { 
             Destroy(this.gameObject);
         }
+
+
     }
     
     // public void SyncSunlight()
@@ -44,6 +48,7 @@ public class sunlight : MonoBehaviour, IPointerClickHandler
     {
         Global global = GameObject.Find("GlobalObj").GetComponent<Global>();
         global.sunlightNum++; //GameConstants.sunlight++;
+        sunCollect.Play(0);
       
       if (mSunlightText) {
         mSunlightText.GetComponent<Text>().text = "SunLight: " + global.sunlightNum;

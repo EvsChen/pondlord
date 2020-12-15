@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3758f8f58fdef43803eb9be1df0608, type: 3}
   m_Name: PhotonServerSettings
   m_EditorClassIdentifier: 
-  AppID: c866e285-6d95-4eb5-b5f7-82a77a296302
+  AppID: 5e4e5e69-36d4-4506-a2a6-5bfc0907c60f
   VoiceAppID: 
-  ChatAppID: b19003ba-80e5-4a12-aff0-d5387730eed6
+  ChatAppID: 5e4e5e69-36d4-4506-a2a6-5bfc0907c60f
   HostType: 1
   PreferredRegion: 0
   EnabledRegions: -1
@@ -23,11 +23,13 @@ MonoBehaviour:
   ServerPort: 5055
   VoiceServerPort: 5055
   JoinLobby: 1
-  EnableLobbyStatistics: 1
+  EnableLobbyStatistics: 0
   PunLogging: 0
   NetworkLogging: 1
   RunInBackground: 1
   RpcList:
+  - AddClientScorePun
+  - AddMasterScorePun
   - Chat
   - ColorRpc
   - DestroyRpc
@@ -35,20 +37,15 @@ MonoBehaviour:
   - Flash
   - InstantiateRpc
   - Marco
+  - MinusHP
   - PickupItemInit
   - Polo
   - PunPickup
   - PunPickupSimple
   - PunRespawn
+  - ReduceClientScorePun
+  - ReduceMasterScorePun
   - RequestForPickupItems
   - RequestForPickupTimes
   - TaggedPlayer
-  - PlantNewLilyPun
-  - setParent
-  - PlantNewLily
-  - MinusHP
-  - AddClientScorePun
-  - AddMasterScorePun
-  - ReduceClientScorePun
-  - ReduceMasterScorePun
   DisableAutoOpenWizard: 1

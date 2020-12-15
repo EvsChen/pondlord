@@ -19,7 +19,13 @@ public class BaseLily : Photon.MonoBehaviour, IPunObservable
     public int parentID = -1;
     bool synced = false;
     Collider2D mCollider;
+    public bool beeApplied = false;
     float updateTimer = 0.0f;
+    public AudioSource bloom;
+
+    float updateTimer2 = 0.0f;
+    private float x;
+    private Image imageScale;
 
     public void ResetLily() {
       progress = 0;
@@ -29,8 +35,11 @@ public class BaseLily : Photon.MonoBehaviour, IPunObservable
 
     public int viewid = -1;
     public void Start()
+        
     {
+        imageScale = this.GetComponentInChildren<Image>();
         //Debug.Log(photonView.viewID);
+        beeApplied = false;
         viewid = photonView.viewID;
         ResetLily();
         mPlayerId = 0;
@@ -73,9 +82,31 @@ public class BaseLily : Photon.MonoBehaviour, IPunObservable
       hp--;
     }
 
+
     // Update is called once per frame
     public void Update()
     {
+        if(state != 3)
+        {
+            imageScale.transform.localScale = new Vector3((Mathf.Sin(Time.time * 1) * 1 + 5.5f) / 5.5f, (Mathf.Sin(Time.time * 1) * 1 + 5f) / 5.5f, 1);
+        }
+        
+        if (beeApplied) {
+            updateTimer2++;
+            imageScale.transform.localScale = new Vector3((Mathf.Sin(Time.time * 10) * 1 + 6f) / 3, (Mathf.Sin(Time.time * 10) * 1 + 6f) / 3, 1);
+            if(updateTimer2 > 120)
+            {
+                beeApplied = false;
+                updateTimer2 = 0;
+                if(imageScale.transform.localScale.x > 1.5)
+                {
+                    imageScale.transform.localScale = new Vector3(1, 1, 1);
+                }
+            }
+                
+        }
+        
+
         if (!synced) {
           SyncLily();
         }
@@ -110,12 +141,13 @@ public class BaseLily : Photon.MonoBehaviour, IPunObservable
                   mImage.sprite = this.leaf;
                   generateSun = true;
               }
-              if (this.progress == 100)
+              if (this.progress >= 100)
               {
                   state = 3;
                   mImage.sprite = this.flower;
                   generateSun = false;
                   functional = true;
+                    bloom.Play();
                   Destroy(mPbComponent);
               }
               updateTimer = 0.0f;

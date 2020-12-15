@@ -23,11 +23,13 @@ public class Global : MonoBehaviour
     public Texture2D beeMouse;
     bool init = false;
     public int sunlightNum;
+
     
 
     void Start()
     {
         sunlightNum = GameConstants.sunlight;
+        beeEvolve = false;
     }
 
     void AddFish() {
@@ -69,17 +71,15 @@ public class Global : MonoBehaviour
         if (!init) {
           InitBoard(); // Try finding board if we didn't find one already.
         }
+
         if (beeEvolve)
         {
-            //Debug.Log("bee true");
-            //Cursor.visible = false;
-            //Cursor.SetCursor(beeMouse, Vector2.zero, CursorMode.Auto);
+            Cursor.SetCursor(beeMouse, Vector2.zero, CursorMode.Auto);
         }
         else
         {
-            // Debug.Log("bee false");
-            //Cursor.visible = true;
-            //Cursor.SetCursor(default, Vector2.zero, CursorMode.Auto);
+       
+            Cursor.SetCursor(default, Vector2.zero, CursorMode.Auto);
         }
         /*
         if (Input.GetButtonDown("Fire1"))
@@ -130,5 +130,6 @@ public class Global : MonoBehaviour
     public void OnLilyDeselect() {
       mSelectedLilyType = LilyType.None;
     }
+
 
 }

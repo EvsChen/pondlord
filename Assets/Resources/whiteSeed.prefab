@@ -107,6 +107,8 @@ MonoBehaviour:
   generateSun: 0
   mPlayerId: 0
   parentID: -1
+  beeApplied: 0
+  bloom: {fileID: 4110004194479744125, guid: a2f943aa28c91024caf3d8055cbdbdfa, type: 3}
   viewid: -1
   mProtector: {fileID: 7140222623361038239, guid: 05e28de4dc55ef743a846de5ed746ae7,
     type: 3}

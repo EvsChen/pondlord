@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-
+using UnityEngine;
 public class bee : Photon.MonoBehaviour, IPointerClickHandler
 {
     public int parentID = -1;
@@ -11,12 +11,14 @@ public class bee : Photon.MonoBehaviour, IPointerClickHandler
     private bool init = false;
     public int mPlayerId;
     public Vector3 direction;
+    public AudioSource beeaudio;
     // Start is called before the first frame update
     void Start()
     {
-        float a = Random.Range(-1, 1);
-        float b = Random.Range(-1, 1);
+        float a = Random.Range(-10, 10);
+        float b = Random.Range(-10, 10);
         direction = new Vector3(a, b, 0.0f);
+        beeaudio.Play(0);
     }
 
     // Update is called once per frame
@@ -27,7 +29,7 @@ public class bee : Photon.MonoBehaviour, IPointerClickHandler
             SyncBee();
             init = true;
         }
-        Vector3 movement = direction *100* Time.deltaTime;
+        Vector3 movement = direction *30* Time.deltaTime;
         transform.position += movement;
 
     }

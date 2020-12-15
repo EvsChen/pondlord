@@ -25,7 +25,7 @@ public class GoldLily : BaseLily
         int rY = Random.Range(((newY - 2) < 0 ? 0 : newY - 2), ((newY + 3) > GameConstants.mBoardHeight ? GameConstants.mBoardHeight : (newY + 3)));
         Cell spawnCell = mBoard.mAllCells[rX, rY];
        // Debug.Log(spawnCell.GetComponentInChildren<BaseLily>());
-        if (!spawnCell.HasFrog() && spawnCell.GetComponentInChildren<BaseLily>() != null && spawnCell.GetComponentInChildren<BaseLily>().generateSun)
+        if (!spawnCell.HasFrog() && spawnCell.GetComponentInChildren<BaseLily>() != null && spawnCell.GetComponentInChildren<BaseLily>().state == 2 )//&& photonView.ownerId != this.gameObject.GetComponent<PhotonView>().ownerId)
         {
             spawnCell.GetComponentInChildren<BaseLily>().state = 3;
             spawnCell.GetComponentInChildren<BaseLily>().generateSun = false;
