@@ -93,6 +93,7 @@ public class Cell : Photon.MonoBehaviour, IPointerEnterHandler, IPointerExitHand
       mContentImg.color = mNormalColor; 
     }
     
+    [PunRPC]
     public void PlantNewLily(LilyType type)
     {
 
