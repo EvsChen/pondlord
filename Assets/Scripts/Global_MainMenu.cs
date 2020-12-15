@@ -33,12 +33,14 @@ public class Global_MainMenu : MonoBehaviour
 
     public void RestartGame()
     {
-        PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.player);
-        PhotonNetwork.LeaveRoom();
         SceneManager.LoadScene("StartMenu");
     }
     public void QuitGame()
     {
-        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit ();
+#endif
     }
 }

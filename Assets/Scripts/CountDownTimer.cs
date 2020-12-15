@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CountDownTimer : MonoBehaviour
+public class CountDownTimer : Photon.MonoBehaviour
 {
     private float totalTime;
     private float currentTime = 0;
@@ -23,15 +23,16 @@ public class CountDownTimer : MonoBehaviour
         secondText = second.GetComponent<TextMeshProUGUI>();
         
         currentTime = totalTime;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*if (!PhotonNetwork.inRoom || PhotonNetwork.room.PlayerCount != 2)
+        if (!PhotonNetwork.inRoom || PhotonNetwork.room.PlayerCount != 2)
         {
             return;
-        }*/
+        }
         
         currentTime -= Time.deltaTime;
         
@@ -45,8 +46,10 @@ public class CountDownTimer : MonoBehaviour
         if (currentTime <= 0)
         {
             currentTime = 0;
-            SceneManager.LoadScene("LoseScene");
-            Debug.Log("Time ends! You lose");
+            
+            PlayerScore playerScore = GameObject.Find("CanvasGlobal").GetComponent<PlayerScore>();
+            playerScore.EndGame();
+            Debug.Log("Time ends!");
         }
     }
 }
